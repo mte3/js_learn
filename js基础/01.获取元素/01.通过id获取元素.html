@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="title">通过id获取元素</div>
+<script>
+    //1.通过id获取元素
+    //get获得 element元素 by通过
+    //参数是大小写敏感的字符串
+    // 返回值是一个对象
+    const title = document.getElementById('title')
+    console.log(title)
+    console.log(typeof title)
+    //打印返回的元素对象，查看里面的属性和方法
+    console.dir(title)
+    console.dir(title.innerText)
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过标签获取元素</title>
+</head>
+<body>
+<ul id="a">
+    <li>通过标签获取元素1</li>
+    <li>通过标签获取元素2</li>
+    <li>通过标签获取元素3</li>
+    <li>通过标签获取元素4</li>
+    <li>通过标签获取元素5</li>
+</ul>
+
+<ul>
+    <li>获取元素11</li>
+    <li>获取元素21</li>
+    <li>获取元素31</li>
+    <li>获取元素41</li>
+    <li>获取元素51</li>
+</ul>
+<script>
+    //获取body里面全部 li
+    const lis = document.getElementsByTagName('li')
+    console.log(lis)
+
+    //获取id为a里面的 li
+    //可以通过element.getElementsByTagName() 获取这个元素里面的某些标签
+    const a = document.getElementById('a')
+    const aLis = a.getElementsByTagName('li')
+    console.log(aLis)
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件执行步骤</title>
+</head>
+<body>
+<div class="a" id="a">事件执行步骤</div>
+<script>
+    //事件执行步骤
+    //点击 div 控制台输出 事件被执行
+    //1.获取事件源
+    const handel = document.getElementById('a')
+    //2.绑定事件 /注册事件
+    //div.onclick
+    //3.添加事件处理程序
+    handel.onclick = function () {
+        console.log('事件被执行')
+    }
+</script>
+</body>
+</html>

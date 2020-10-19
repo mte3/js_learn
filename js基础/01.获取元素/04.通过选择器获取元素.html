@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过选择器获取元素</title>
+</head>
+<body>
+<div id="a">
+    <div class="box">通过选择器获取元素1</div>
+    <div class="box">通过选择器获取元素2</div>
+    <div class="box">通过选择器获取元素3</div>
+    <ul>
+        <li>通过选择器获取元素1</li>
+        <li>通过选择器获取元素2</li>
+        <li>通过选择器获取元素3</li>
+        <li>通过选择器获取元素4</li>
+        <li>通过选择器获取元素5</li>
+    </ul>
+</div>
+<script>
+    //通过querySelector返回指定器的第一个元素对象，
+    const firstBox = document.querySelector('.box')
+    console.log(firstBox)
+    const firstLi = document.querySelector('li')
+    console.log(firstLi)
+
+    //通过querySelector返回指定器的所有元素对象，
+    const allBox = document.querySelectorAll('.box')
+    console.log(allBox)
+    const allLi = document.querySelectorAll('li')
+    console.log(allLi)
+</script>
+</body>
+</html>
