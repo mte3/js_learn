@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><span>我是span标签文字</span>
+    <meta charset="UTF-8">
+    <title>操作元素改变元素2</title>
+</head>
+<body>
+<p>
+    我是p标签文字
+</p>
+<script>
+    //inner 和 innerHTML 的区别
+    //1.innerText 不能识别HTML标签，非标准，回去处空格和换行
+    const div = document.querySelector('p');
+    // div.innerText = '<strong>已经变了，还加粗了</strong>'
+
+    //innerHTML 可以识别HTML标签 Wsc标准 可以保留空格和换行
+    // div.innerHTML = '<strong>已经变了，还加粗了</strong>'
+</script>
+</body>
+</html>

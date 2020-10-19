@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作元素改变元素内容</title>
+</head>
+<body>
+<p></p>
+<button>显示当地系统时间</button>
+<div>当地时间</div>
+<script>
+    //点击按钮， div里面文字发生变化
+    const btn = document.querySelector('button')
+    const div = document.querySelector('div')
+    //2.注册事件
+    btn.onclick = function () {
+        div.innerText = getData();
+    }
+    //元素不添加事件
+    const p = document.querySelector('p')
+    p.innerText = getData()
+
+    function getData() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const dates = date.getDate();
+        const day = date.getDay();
+        const dateList  = ['星期日','星期一','星期二','星期三','星期四','星期无五','星期六',]
+         return '今天是：' + year + '年' + month + '月' + dates + '日' + dateList[day];
+    }
+
+</script>
+</body>
+</html>
