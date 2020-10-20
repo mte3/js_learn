@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码格式不正确提示</title>
+</head>
+<style>
+    .a {
+        width: 600px;
+        margin: 100px auto;
+    }
+    .b{
+         color: red;
+     }
+    .c{
+          color: green;
+      }
+</style>
+<body>
+<div class="a">
+    <input type="password" class="input">
+    <span class="mes">请输入6到16位密码</span>
+    <script>
+        const ipt = document.querySelector('.input')
+        const mes = document.querySelector('.mes')
+        ipt.onblur = function () {
+            if (ipt.value.length < 6 || ipt.value.length > 16) {
+                mes.className = 'b'
+            }else {
+                mes.innerHTML = '输入正确'
+                mes.className = 'c'
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

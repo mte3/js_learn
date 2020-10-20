@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿京东显示密码</title>
+</head>
+<style>
+    .box{
+        position: relative;
+        width: 400px;
+        border-bottom: 1px solid gray;
+        margin: 100px auto;
+    }
+    .box input{
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+    }
+    .box img{
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        width: 16px;
+    }
+</style>
+<body>
+<div class="box">
+    <label for="">
+        <img src="../../img/eye.png" alt="" id="img">
+    </label>
+    <input type="password" name="" id="input">
+    <p></p>
+    <script>
+        //获取元素
+        const img = document.querySelector('#img')
+        const input = document.querySelector('#input')
+        let isOpen = false
+        img.onclick = function () {
+            if (!isOpen){
+                isOpen = true
+                input.type = 'text'
+                img.src = "../../img/eye1.png"
+            }else {
+                isOpen = false
+                input.type = 'password'
+                img.src = "../../img/eye.png"
+            }
+
+        }
+    </script>
+</div>
+</body>
+</html>

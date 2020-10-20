@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改元素样式</title>
+</head>
+<style>
+    .a{
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        background-color: pink;
+        margin: 100px auto;
+        text-align: center;
+    }
+    .b{
+        width: 400px;
+        height: 400px;
+        line-height: 200px;
+        background-color: pink;
+        margin: 100px auto;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="a">class 更改元素样式</div>
+<script>
+    const a = document.querySelector('.a')
+
+    a.onclick = function () {
+        //更改class 覆盖原来的类名
+        this.className = 'b'
+
+        //保留原来的类名 使用多类名选择器
+        this.className = 'a b'
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式属性修改2</title>
+</head>
+<style>
+    .a{
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+        margin: 100px auto;
+        position: relative;
+    }
+    .b{
+        font-size: 12px;
+        position: absolute;
+        left: -16px;
+        background-color: red;
+        width: 16px;
+        line-height: 16px;
+        margin: auto;
+    }
+</style>
+<body>
+<div class="a">
+    <div class="b">x</div>
+</div>
+<script>
+    const a = document.querySelector('.a')
+    const b = document.querySelector('.b')
+    b.onclick = function () {
+        a.style.display = 'none'
+    }
+</script>
+</body>
+</html>

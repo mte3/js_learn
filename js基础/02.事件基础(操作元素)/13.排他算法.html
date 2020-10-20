@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排他算法</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<button>按钮6</button>
+<script>
+    const btns = document.querySelectorAll('button')
+    for(let i = 0;i<btns.length;i++){
+        btns[i].onclick = function () {
+            //把全部的背景颜色设置为空
+            for (let i = 0;i<btns.length;i++){
+                btns[i].style.backgroundColor = ''
+            }
+            //再把点击的那个设置为pink
+            btns[i].style.backgroundColor = 'pink'
+        }
+    }
+
+</script>
+</body>
+</html>
