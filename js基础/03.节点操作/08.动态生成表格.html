@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成表格</title>
+</head>
+<style>
+    table {
+        border-spacing: 0;
+        margin: 120px auto;
+    }
+
+    thead > tr {
+        background-color: #999999;
+    }
+
+    tbody tr td {
+        padding: 4px 24px;
+    }
+</style>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>科目</th>
+        <th>成绩</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script>
+    //先准备好学生数据
+    const datas = [
+        {
+        name: '布莱恩特',
+        s: 'js',
+        num: 100
+    },
+        {
+            name: '威斯布鲁克',
+            s: 'js',
+            num: 100
+        }, {
+            name: '阿伦',
+            s: 'js',
+            num: 100
+        }, {
+            name: '隆多',
+            s: 'js',
+            num: 100
+        }, {
+            name: '霍华德',
+            s: 'js',
+            num: 100
+        }
+
+    ]
+    //1.往tbody里面创建行
+    const tbody = document.querySelector("tbody")
+    for(let i =0;i<datas.length;i++){
+        //2.创建tr
+        const tr = document.createElement("tr")
+        tbody.appendChild(tr)
+
+        for (let a in datas[i]){
+            //3.创建单元格
+            const td  = document.createElement("td")
+            //把对象里面的属性值给td
+            td.innerHTML = datas[i][a]
+
+            //添加单元格
+            tr.appendChild(td)
+        }
+        // 4.c创建删除的单元格
+        const td = document.createElement("td")
+        td.innerHTML =  " <a href = 'javascript:;' >删除</a>"
+        tr.appendChild(td)
+    }
+    const de = document.querySelectorAll("a")
+    for(let i =0 ; i<datas.length;i++){
+        de[i].onclick = function () {
+            tbody.removeChild(this.parentNode.parentNode)
+        }
+    }
+</script>
+</body>
+</html>
