@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子节点获取元素</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+    const l =document.querySelector('ul')
+    // console.log(l.children)//1.通过子节点获取元素
+    // console.log(l.firstChild) //获取的是第一个节点，无论是文本节点还是元素节点
+    // console.log(l.lastChild) //获取的是最后一个节点，无论是文本节点还是元素节点
+
+    //2.获取第一个元素节点  最后一个元素节点
+    // console.log(l.firstElementChild)
+    // console.log(l.lastElementChild)
+
+    //3.实际开发写法
+    // console.log(l.children[0])
+    console.log(l.children[l.children.length-1])
+</script>
+</body>
+</html>

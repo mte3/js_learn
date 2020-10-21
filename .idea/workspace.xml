@@ -2,22 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/eye.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/eye1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/05.表单属性设置.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/06.仿京东显示密码.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/07.样式属性修改.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/09.循环精灵图.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/10.显示隐藏文本框内容.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/11.通过className更改元素样式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/12.密码格式不正确提示.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/13.排他算法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/8.样式属性修改2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/14.表格鼠标事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/15.表单全选.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/16.自定义属性操作.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/17.tab切换栏.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/03.节点操作/01.子节点获取元素.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/03.节点操作/02.下拉菜单.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/03.节点操作/03.兄弟节点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/03.节点操作/04.创建和新建节点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/03.节点操作/05.节点新建实力（评论）.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础/01.事件基础.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/01.事件基础.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础/02.事件执行步骤.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/02.事件执行步骤.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础/03.操作元素改变元素内容.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/03.操作元素改变元素内容.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础/04.操作元素改变元素2.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/04.操作元素改变元素2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../try" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -86,7 +80,8 @@
       <updated>1603081326020</updated>
       <workItem from="1603081327577" duration="916000" />
       <workItem from="1603082821414" duration="13334000" />
-      <workItem from="1603113668674" duration="18596000" />
+      <workItem from="1603113668674" duration="31800000" />
+      <workItem from="1603250279974" duration="9864000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -95,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603122825693</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="02">
+      <created>1603174841929</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603174841929</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,21 +105,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <MESSAGE value="02" />
+    <option name="LAST_COMMIT_MESSAGE" value="02" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603122823184">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603174839744">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603122823184" />
-    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603165721563">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603174839744" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603186719657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603165721563" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603122843136">
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603186719657" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603174849075">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603122843136" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603174849075" />
     <state x="1108" y="248" key="run.anything.popup" timestamp="1603164456479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

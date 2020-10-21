@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单全选</title>
+</head>
+<style>
+    thead tr {
+        background-color: blue;
+    }
+</style>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="all">
+            </th>
+            <th>商品</th>
+            <th>价钱</th>
+        </tr>
+        </thead>
+        <tbody id="tb">
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>iphone8</td>
+            <td>6000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>iphone11</td>
+            <td>7000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>iphone12</td>
+            <td>9000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>iphone12max</td>
+            <td>12000</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const all = document.querySelector('#all')
+        const list = document.querySelector('#tb').querySelectorAll('input')
+        all.onclick = function () {
+            //把所有按钮的checked的值更全选按钮一样，
+            for (let i = 0; i < list.length; i++) {
+                list[i].checked = this.checked
+            }
+        }
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                //先给他赋值为true
+                all.checked = true
+                //只要有一个为不选中就给他赋值为false
+               for(let i = 0;i<list.length;i++){
+                   if(!list[i].checked){
+                       all.checked = false
+                       break
+                   }
+               }
+
+            }
+
+        }
+
+    </script>
+
+</div>
+</body>
+</html>

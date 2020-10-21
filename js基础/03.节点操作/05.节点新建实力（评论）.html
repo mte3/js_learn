@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点实例</title>
+</head>
+<body>
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<button>发布</button>
+<ul>
+<!--    存放评论的列表-->
+</ul>
+<script>
+    const btn = document.querySelector('button');
+    const ul = document.querySelector('ul')
+    const text = document.querySelector('textarea')
+    btn.onclick = function () {
+        if (text.value===''){
+            alert('请输入内容');
+            return false
+        }else {
+            //1.创建元素
+            const lis = document.createElement('li')
+            //1.1将输入内容添加到li中
+            lis.innerHTML = text.value
+            //1.2添加完清空输入框
+            text.value = ''
+
+            //2.添加元素
+            // ul.appendChild(li) //从后面添加
+            ul.insertBefore(lis,ul.children[0])  //从前面添加
+        }
+
+    }
+</script>
+</body>
+</html>

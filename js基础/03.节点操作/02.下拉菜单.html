@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+</head>
+<style>
+.nav{
+    display: flex;
+}
+.nav>li{
+    margin: 16px;
+}
+    .nav li{
+        padding: 16px 0;
+        list-style: none;
+
+    }
+    .nav ul{
+        display: none;
+        padding: 0;
+    }
+</style>
+<body>
+<ul class="nav">
+    <li>
+        <a href="#">微博5</a>
+        <ul>
+            <li><a href="">私信5</a></li>
+            <li><a href="">评论5</a></li>
+            <li><a href="">@我5</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">微博4</a>
+        <ul>
+            <li><a href="">私信4</a></li>
+            <li><a href="">评论4</a></li>
+            <li><a href="">@我4</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">微博3</a>
+        <ul>
+            <li><a href="">私信3</a></li>
+            <li><a href="">评论3</a></li>
+            <li><a href="">@我3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">微博1</a>
+        <ul>
+            <li><a href="">私信1</a></li>
+            <li><a href="">评论1</a></li>
+            <li><a href="">@我1</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">微博2</a>
+        <ul>
+            <li><a href="">私信2</a></li>
+            <li><a href="">评论2</a></li>
+            <li><a href="">@我2</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    const nav = document.querySelector('.nav')//获取最外面的ul
+    const lis = nav.children//获取最外面ul的li
+    for(let i =0;i<lis.length;i++){
+        lis[i].onmouseover =function () {
+            this.children[1].style.display = 'block'
+        }
+        lis[i].onmouseout =function () {
+            this.children[1].style.display = 'none'
+        }
+    }
+
+</script>
+</body>
+</html>

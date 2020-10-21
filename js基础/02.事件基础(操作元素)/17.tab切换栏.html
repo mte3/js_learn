@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+</head>
+<style>
+    .tab_list ul{
+        list-style: none;
+        display: flex;
+        margin: 10px auto;
+    }
+    .tab_list li{
+        border: 1px solid red;
+        padding: 6px 16px;
+    }
+    .item{
+        display: none;
+    }
+    .a{
+        background-color: red;
+    }
+    .isChoice{
+        background-color: red;
+    }
+</style>
+<body>
+<div class="tab">
+    <div class="tab_list">
+        <ul>
+            <li class="a">商品介绍</li>
+            <li>参数</li>
+            <li>售后</li>
+            <li>评价</li>
+            <li>社区</li>
+        </ul>
+    </div>
+    <div class="tab_item" >
+        <div class="item" style="display: block">商品介绍</div>
+        <div class="item">参数</div>
+        <div class="item">售后</div>
+        <div class="item">评价</div>
+        <div class="item">社区</div>
+    </div>
+    <script>
+        const title = document.querySelector('.tab_list').querySelectorAll('li')
+        const text = document.querySelector('.tab_item').querySelectorAll('div')
+        for(let i = 0;i<title.length;i++){
+            title[i].onclick = function () {
+                //排他
+                for (let i = 0;i<title.length;i++){
+                    title[i].className = '';
+                    text[i].style.display = 'none'
+                }
+                this.className = 'isChoice'
+                text[i].style.display = 'block'
+
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格鼠标事件</title>
+</head>
+<style>
+    thead tr{
+        height: 30px;
+        background-color: skyblue;
+    }
+    tbody tr{
+        text-align: center;
+        color: blue;
+    }
+    .a{
+        background-color: red;
+    }
+</style>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>代码</th>
+        <th>名称</th>
+        <th>最新公布净值</th>
+        <th>累计净值</th>
+        <th>前单位净值</th>
+        <th>净值增长率</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>003526</td>
+        <td>农银金3月定期开发债卷</td>
+        <td>1.234</td>
+        <td>2.990</td>
+        <td>0.232</td>
+        <td>+0.897%</td>
+    </tr>
+    <tr>
+        <td>003526</td>
+        <td>农银金3月定期开发债卷</td>
+        <td>1.234</td>
+        <td>2.990</td>
+        <td>0.232</td>
+        <td>+0.897%</td>
+    </tr>
+    <tr>
+        <td>003526</td>
+        <td>农银金3月定期开发债卷</td>
+        <td>1.234</td>
+        <td>2.990</td>
+        <td>0.232</td>
+        <td>+0.897%</td>
+    </tr>
+    </tbody>
+    <script>
+        const g = document.querySelector('tbody').querySelectorAll('tr')
+        for(let i = 0;i<g.length;i++){
+            g[i].onmouseover = function () {
+                this.className = 'a'
+            }
+            g[i].onmouseout = function(){
+                this.className = ''
+            }
+        }
+    </script>
+</table>
+
+</body>
+</html>
