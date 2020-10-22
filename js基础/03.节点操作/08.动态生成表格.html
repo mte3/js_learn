@@ -76,11 +76,12 @@
             //添加单元格
             tr.appendChild(td)
         }
-        // 4.c创建删除的单元格
+        // 4.创建删除的单元格
         const td = document.createElement("td")
         td.innerHTML =  " <a href = 'javascript:;' >删除</a>"
         tr.appendChild(td)
     }
+    //5.添加点击删除效果
     const de = document.querySelectorAll("a")
     for(let i =0 ; i<datas.length;i++){
         de[i].onclick = function () {

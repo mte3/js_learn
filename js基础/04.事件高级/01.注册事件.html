@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册事件</title>
+</head>
+<body>
+<button>传统注册事件</button>
+<button>方法监听注册事件</button>
+<script>
+    const btn = document.querySelectorAll('button')
+    //传统注册事件
+    btn[0].onclick = function () {
+        alert('这是传统的注册事件方法')
+    }
+    btn[0].onclick = function () {
+        alert('这是传统的注册事件方法11')
+    }
+
+    //方法监听注册方法
+    btn[1].addEventListener('click',function () {
+        alert('这是方法监听注册事件方法')
+    })
+    btn[1].addEventListener('click',function () {
+        alert('这是方法监听注册事件方法，第二个事件监听')
+    })
+
+    //1.传统注册事件
+    //利用on开头的事件onclick
+    //特点：注册事件的唯一性
+    //同一个元素只能设置一个处理函数
+    // 最后注册的处理函数将会覆盖前面注册的处理函数
+
+    //2.方法监听事件注册方式
+    //addEventListener() 它是一个方法
+    // 特点：同一个元素，同一个事件可以注册多个监听器
+    //用法 addEventListener（type,listener[useCapture])
+    // 参数
+    // type:需要监听的事件类型，如click, mouseover,
+    // 注意这里是不需要加on
+    // listener：事件处理函数，事件发生时，会调用的函数
+    // useCapture：可选参数，布尔值，默认为false
+</script>
+</body>
+</html>
