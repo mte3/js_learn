@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跟随鼠标的图片</title>
+</head>
+<style>
+    img{
+        position: absolute;
+        width: 24px;
+        height: 24px;
+    }
+</style>
+<body>
+<img src="../../img/t.png" alt="">
+<script>
+    const icon = document.querySelector("img")
+    document.addEventListener('mousemove',function (e) {
+        //mousemove 只要鼠标一移动，就会触发事件
+        //获取鼠标最新的坐标
+        // console.log(e.pageY)
+        // console.log(e.pageX);
+        const x = e.pageX
+        const y = e.pageY
+
+        icon.style.top = y + 'px'
+        icon.style.left = x + 'px'
+    })
+</script>
+</body>
+</html>

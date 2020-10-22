@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/01.注册事件.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/02.删除事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/t.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/03.事件处理.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/04.事件委托.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/05.阻止鼠标右键事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/06.鼠标事件对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/07.跟随鼠标的图片.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/03.节点操作/08.动态生成表格.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/03.节点操作/08.动态生成表格.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +80,7 @@
       <workItem from="1603082821414" duration="13334000" />
       <workItem from="1603113668674" duration="31800000" />
       <workItem from="1603250279974" duration="16314000" />
-      <workItem from="1603332627120" duration="8888000" />
+      <workItem from="1603332627120" duration="16408000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -113,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603284922333</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="04">
+      <created>1603342900727</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603342900727</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,21 +136,22 @@
     <MESSAGE value="03" />
     <MESSAGE value="03." />
     <MESSAGE value="03.." />
-    <option name="LAST_COMMIT_MESSAGE" value="03.." />
+    <MESSAGE value="04" />
+    <option name="LAST_COMMIT_MESSAGE" value="04" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603284930002">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603342897550">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603284930002" />
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603342897549" />
     <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603186719657">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603186719657" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603284940607">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603342907891">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603284940607" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603342907891" />
     <state x="1108" y="248" key="run.anything.popup" timestamp="1603164456479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

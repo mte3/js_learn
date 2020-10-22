@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止鼠标右键事件</title>
+</head>
+<body>
+我是一段不能复制的文字，就是不能使用右键
+<script>
+    //1.contextmenu 禁用鼠标右键
+    document.addEventListener('contextmenu',function (e) {
+        e.preventDefault()//阻止/禁止鼠标右键，
+    })
+
+    //禁止选中文字 selectstart
+    document.addEventListener('selectstart',function (e) {
+        e.preventDefault()//禁止选中文字
+    })
+</script>
+</body>
+</html>

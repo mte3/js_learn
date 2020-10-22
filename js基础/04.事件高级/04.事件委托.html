@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+</head>
+<body>
+<ul>
+    <li>点击弹出1</li>
+    <li>点击弹出1</li>
+    <li>点击弹出1</li>
+    <li>点击弹出1</li>
+    <li>点击弹出1</li>
+    <li>点击弹出1</li>
+</ul>
+<script>
+    const ul = document.querySelector('ul')
+    ul.addEventListener("click", function (e) {
+        for(let i = 0;i<ul.children.length;i++){
+            ul.children[i].style.backgroundColor = ''
+        }
+        e.target.style.backgroundColor = 'red'
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件对象</title>
+</head>
+<style>
+    body{
+        height: 6000px;
+        width: 3000px;
+    }
+</style>
+<body>
+<script>
+    document.addEventListener("click", function (e) {
+        //1.client 获取的是鼠标在可视区域的X和Y坐标
+        // console.log(e.clientX)
+        // console.log(e.clientY)
+        // console.log('---------')
+        // //2.page 获取鼠标在整个页面的X和Y坐标
+        console.log(e.pageX)
+        console.log(e.pageY)
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+</head>
+<style>
+    .box {
+        width: 1200px;
+        height: 600px;
+        margin: 100px auto;
+        background-color: pink;
+    }
+    .box div{
+        width: 120px;
+        height: 120px;
+        background-color: blue;
+        margin: 24px;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="box1">
+        我是盒子
+    </div>
+
+    <a href="https://blog.csdn.net/weixin_44642057?orderby=ViewCount">我的博客
+    </a>
+</div>
+<script>
+    const box = document.querySelector('.box1')
+    const a = document.querySelector("a")
+
+    a.addEventListener('click',function (e) {
+        //dom 标准写法，阻止默认行为（事件）
+        // 这里是连接不跳转
+        e.preventDefault()
+
+        // e.stopPropagation()//阻止冒泡事件 （这里没有用到）
+    })
+    box.addEventListener('click',function (e) {
+        console.log(e)
+    })
+
+</script>
+</body>
+</html>
