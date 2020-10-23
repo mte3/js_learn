@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件对象</title>
+</head>
+<body>
+<script>
+    //键盘事件对象中的keyCode属性可以得到相应的ASCII码值
+
+    //keyup 和keydown事件不区分字母大小写 a 和 A 得到的 keyCode值是65
+    //keypress 事件区分字母大小写 a 得到的是97 ，和 A 得到的是 65
+
+    document.addEventListener('keyup',function (e) {
+        console.log(e);
+        console.log(e.keyCode);//按下的键的keyCode值
+        console.log(e.key);//按下的键
+    })
+
+    document.addEventListener('keypress',function (e) {
+        console.log(e);
+        console.log(e.keyCode);//按下的键的keyCode值
+        console.log(e.key);//按下的键
+    })
+</script>
+</body>
+</html>

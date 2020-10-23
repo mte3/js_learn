@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/t.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/03.事件处理.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/04.事件委托.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/05.阻止鼠标右键事件.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/06.鼠标事件对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/07.跟随鼠标的图片.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/09.键盘事件对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/10.按下s键获取焦点.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/12.css聊天气泡.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../try" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,6 +79,7 @@
       <workItem from="1603113668674" duration="31800000" />
       <workItem from="1603250279974" duration="16314000" />
       <workItem from="1603332627120" duration="16408000" />
+      <workItem from="1603414451646" duration="8926000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
