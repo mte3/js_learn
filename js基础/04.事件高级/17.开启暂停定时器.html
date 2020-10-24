@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开启暂停定时器</title>
+</head>
+<body>
+<button class="begin">开始</button>
+<button class="stop">暂停</button>
+<script>
+    const begin = document.querySelector('.begin')
+    const stop = document.querySelector('.stop')
+    let time1 = null
+    begin.addEventListener('click',function () {
+        if (time1){
+            clearInterval(time1)
+            time1 = null
+        } else {
+            time1 = setInterval(() => {
+                console.log('定时器开始了')
+            },1000)
+        }
+    })
+    // stop.addEventListener('click',function () {
+    //     clearInterval(time1)
+    // })
+</script>
+</body>
+</html>

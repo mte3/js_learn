@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器setTimeout</title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+    // setTimeout(() => {
+    //
+    // })
+    const time1 = setTimeout(A,6000)
+    function A() {
+        console.log('-------------')
+    }
+    const btn = document.querySelector('#btn')
+    // 点击停止计时器
+    btn.addEventListener('click',function () {
+            clearTimeout(time1)
+    })
+
+</script>
+</body>
+</html>

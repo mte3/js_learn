@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/09.键盘事件对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/10.按下s键获取焦点.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/12.css聊天气泡.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/13.监听窗口大小.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/14.定时器setTimeout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/15.定时器setInterval.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/16.倒计时.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/17.开启暂停定时器.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/18.定时器案例（六十秒验证码）.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/19.页面跳转（传参）/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/19.页面跳转（传参）/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/aaa.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/04.事件高级/08.键盘事件.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +22,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1j55tPsHXDwNd0zqNoFsQsbN0yG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -38,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/vue_project/super_mall" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,6 +87,8 @@
       <workItem from="1603250279974" duration="16314000" />
       <workItem from="1603332627120" duration="16408000" />
       <workItem from="1603414451646" duration="8926000" />
+      <workItem from="1603332627120" duration="17190000" />
+      <workItem from="1603505231264" duration="7679000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -123,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603342900727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="04.">
+      <created>1603364695559</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603364695559</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,21 +152,34 @@
     <MESSAGE value="03." />
     <MESSAGE value="03.." />
     <MESSAGE value="04" />
-    <option name="LAST_COMMIT_MESSAGE" value="04" />
+    <MESSAGE value="04." />
+    <option name="LAST_COMMIT_MESSAGE" value="04." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603342897550">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603364693676">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603342897549" />
-    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603186719657">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603364693676" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603509876737">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603186719657" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603342907891">
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603509876737" />
+    <state x="368" y="88" key="MergeDialog" timestamp="1603424993958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603342907891" />
+    <state x="368" y="88" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603424993958" />
+    <state x="1158" y="232" key="MultipleFileMergeDialog" timestamp="1603424993971">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603424993971" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603364709286">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603364709286" />
+    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603424902163">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603424902163" />
     <state x="1108" y="248" key="run.anything.popup" timestamp="1603164456479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

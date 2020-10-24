@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<div></div>
+</body>
+
+<script>
+    console.log(location.search); //?name=input.value
+    //1.先去掉问号，substr(起始位置，截取几个字符（可以不传，默认截取到最后））
+    const params = location.search.substr(1)//name=input.value
+    console.log(params)
+    //2.利用=把字符串分割为数组
+    const list = params.split('=') //['name','input.value']
+    console.log(list)
+    //3.把数据写如div中
+    const div = document.querySelector('div')
+    div.innerHTML = list[1]+' 欢迎您'
+</script>
+</html>

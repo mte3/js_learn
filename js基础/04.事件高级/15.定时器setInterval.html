@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器setInterval</title>
+</head>
+<body>
+<button>暂停</button>
+<script>
+    const time1 = setInterval(() => {
+        console.log('====')
+    }, 1000)
+
+    const btn = document.querySelector("button")
+    btn.addEventListener('click', function () {
+        if (btn.innerText === '暂停') {
+            clearInterval(time1)
+            btn.innerText = '开始'
+        }else {
+            btn.innerText = '暂停'
+        }
+    })
+</script>
+</body>
+</html>

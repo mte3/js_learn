@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<body>
+<div>
+    <input type="number" placeholder="请输入手机号">
+    <button>发送验证码</button>
+</div>
+<script>
+    const btn = document.querySelector('button')
+    const input = document.querySelector("input")
+    let time = 10
+    let timer = null
+    btn.addEventListener('click', function () {
+        if (input.value.length === 11) {
+            console.log('手机号长度正确')
+            btn.disabled = true
+            timer = setInterval(() => {
+                time--
+                btn.innerHTML = time + '秒后重新发送'
+                if (time === 0) {
+                    btn.disabled = false
+                    btn.innerHTML = '重新发送'
+                    clearInterval(timer)
+                    time = 10
+                }
+            }, 1000)
+        } else {
+            alert('请输入正确手机号')
+        }
+    })
+</script>
+</body>
+</html>
