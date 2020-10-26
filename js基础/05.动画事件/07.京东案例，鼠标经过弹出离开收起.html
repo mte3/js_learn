@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标经过弹出，离开收起</title>
+
+    <script src="06-%20-.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        display: flex;
+    }
+
+    .box1 {
+        position: fixed;
+        left: 0;
+        width: 60px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        z-index: 8;
+        background-color: red;
+    }
+
+    .t {
+        position: absolute;
+        left: -120px;
+        width: 180px;
+        height: 48px;
+        text-align: center;
+        line-height: 48px;
+        background-color: darkred;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="box1">➡</div>
+    <div class="t">出问题啦</div>
+</div>
+<script>
+    const box = document.querySelector('.box1')
+    const t = document.querySelector('.t')
+    box.addEventListener('mouseenter', function () {
+        animate(t, box.offsetWidth)
+    })
+    box.addEventListener('mouseleave', function () {
+        if (t.style.left > box.offsetWidth - t.offsetWidth) {
+            setInterval(() => {
+                t.style.left = t.style.left - 1 + 'px'
+                console.log(t.style.left - 1);
+            }, 50)
+        } else {
+        }
+    })
+</script>
+</body>
+</html>
