@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动的模态框</title>
+</head>
+<style>
+    .login-header {
+        font-size: 32px;
+        text-align: center;
+        text-decoration: none;
+        margin: 120px auto;
+    }
+
+    .login-header a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #login {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9;
+        padding: 12px 0;
+        background-color: white;
+        width: 420px;
+    }
+
+    .login-input-content {
+        width: 100%;
+        text-align: right;
+    }
+
+    .login-input {
+        margin: 12px;
+        width: 400px;
+        /*background-color: red;*/
+    }
+
+    .login-input input {
+        width: 300px;
+        height: 32px;
+    }
+
+    #title {
+        text-align: center;
+        font-size: 18px;
+        padding-bottom: 12px;
+    }
+
+    #closeBtn {
+        background-color: white;
+        position: absolute;
+        right: -22px;
+        top: -22px;
+        width: 44px;
+        height: 44px;
+        text-decoration: none;
+        text-align: center;
+        line-height: 44px;
+        border-radius: 22px;
+        color: black;
+    }
+
+    #loginBtn {
+        margin: 24px auto 0 auto;
+        padding: 8px 0;
+        /*background-color: red;*/
+        width: 172px;
+        text-align: center;
+        border: 1px solid grey;
+    }
+
+    #login-button-submit {
+        color: black;
+        text-decoration: none;
+    }
+
+    #bg {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .3);
+    }
+</style>
+<body>
+<div class="login-header"><a href="javascript:;" id="link">点击弹出登录框</a></div>
+<div id="login" class="login">
+    <div id="title" class="login-title">登录会员
+        <span><a href="javascript:void(0);" id="closeBtn" class="close-login">关闭</a></span>
+    </div>
+    <div class="login-input-content">
+        <div class="login-input">
+            <label>用户名：</label>
+            <input type="text" placeholder="请输入用户名" name="info[username]" class="username" id="username">
+        </div>
+        <div class="login-input">
+            <label>登录密码：</label>
+            <input type="text" placeholder="请输入密码" name="info[password]" class="password" id="password">
+        </div>
+    </div>
+    <div id="loginBtn" class="loginBtn"><a href="javascript:void(0);" id="login-button-submit">登录</a></div>
+</div>
+<div id="bg" class="login-bg"></div>
+<script>
+    const handel = document.querySelector('#link')
+    const login = document.querySelector('#login')
+    const closeBtn = document.querySelector('#closeBtn')
+    const bg = document.querySelector('#bg')
+    const title = document.querySelector('#title')
+
+    //拖动
+    title.addEventListener('mousedown', function (e) {
+        //1.鼠标距离盒子（login）边缘的值(鼠标在盒子（login）内的坐标)
+        const x = e.pageX - login.offsetLeft
+        const y = e.pageY - login.offsetTop
+
+        //2.鼠标移动时，把鼠标在页面中的坐标减去鼠标在盒子中的坐标，
+        // 就可以得到盒子（login）拖动的坐标left和top值
+        document.addEventListener('mousemove', move)
+        function move(e) {
+            login.style.left = e.pageX - x + 'px'
+            login.style.top = e.pageY - y + 'px'
+        }
+
+        //松开鼠标让盒子不要跟着走，移除事件
+        document.addEventListener('mouseup',function () {
+            document.removeEventListener('mousemove',move)
+        })
+    })
+
+    //显示与关闭
+    handel.addEventListener('click', function () {
+        this.style.display = 'none'
+        login.style.display = 'block'
+        bg.style.display = 'block'
+    })
+    closeBtn.addEventListener('click', function () {
+        login.style.display = 'none'
+        bg.style.display = 'none'
+        handel.style.display = 'block'
+    })
+    bg.addEventListener('click', function () {
+        login.style.display = 'none'
+        bg.style.display = 'none'
+        handel.style.display = 'block'
+    })
+</script>
+</body>
+</html>

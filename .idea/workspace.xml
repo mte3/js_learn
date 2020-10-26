@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/13.监听窗口大小.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/14.定时器setTimeout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/15.定时器setInterval.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/16.倒计时.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/17.开启暂停定时器.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/18.定时器案例（六十秒验证码）.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/19.页面跳转（传参）/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/19.页面跳转（传参）/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/04.事件高级/aaa.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/01.获取元素顶部距离....html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/02.获取鼠标在盒子内坐标.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/03.拖动的模态框.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/04.仿京东商品放大镜.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +82,8 @@
       <workItem from="1603332627120" duration="16408000" />
       <workItem from="1603414451646" duration="8926000" />
       <workItem from="1603332627120" duration="17190000" />
-      <workItem from="1603505231264" duration="7679000" />
+      <workItem from="1603505231264" duration="7879000" />
+      <workItem from="1603547840214" duration="17630000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -139,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603364695559</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="05">
+      <created>1603547201089</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603547201089</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,17 +155,18 @@
     <MESSAGE value="03.." />
     <MESSAGE value="04" />
     <MESSAGE value="04." />
-    <option name="LAST_COMMIT_MESSAGE" value="04." />
+    <MESSAGE value="05" />
+    <option name="LAST_COMMIT_MESSAGE" value="05" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603364693676">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603547199561">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603364693676" />
-    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603509876737">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603547199561" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603547852609">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603509876737" />
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603547852609" />
     <state x="368" y="88" key="MergeDialog" timestamp="1603424993958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -172,10 +175,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603424993971" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603364709286">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1603547218846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603364709286" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603547218846" />
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603424902163">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

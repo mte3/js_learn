@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取距离</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 300px 200px;
+        position: relative;
+    }
+    .box1{
+        width: 100px;
+        height: 100px;
+        margin: 30px auto;
+        background-color: blue;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="box1"></div>
+</div>
+<script>
+    const box = document.querySelector('.box')
+    const box1 = document.querySelector('.box1')
+    console.log(box.offsetTop)
+    console.log(box.offsetLeft)
+
+    console.log(box1.offsetTop)
+    console.log(box1.offsetLeft)
+
+    console.log(box1.parentNode)//返回最近一级的父亲，不管有没有定位
+    console.log(box1.offsetParent)//返回带有定位的父亲，否则body
+
+</script>
+</body>
+</html>

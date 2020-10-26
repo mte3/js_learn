@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿京东放大镜</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        width: 320px;
+        height: 240px;
+        border: 1px solid grey;
+    }
+
+    .S {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        opacity: .4;
+        cursor: move;
+    }
+
+    .bigBox {
+        overflow: hidden;
+        border: 1px solid grey;
+        display: none;
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        left: 378px;
+        top: 0;
+        z-index: 999;
+    }
+
+    .bigBox img {
+        width: calc(320 / 100 * 320px);
+        height: calc(320 / 100 * 32 * 24px);
+        position: absolute;
+        /*left: 0;*/
+        /*top: 0;*/
+    }
+</style>
+<body>
+<div class="box">
+    <img src="../../img/timg.jpg" alt="">
+    <div class="S"></div>
+</div>
+<div class="bigBox"><img id="big" src="../../img/ss.jpg" alt=""></div>
+<script>
+    const box = document.querySelector('.box')
+    const bigBox = document.querySelector('.bigBox')
+    const s = document.querySelector('.S')
+    const img = document.querySelector("#big")
+    //1.鼠标进入box盒子就显示放大镜(s)盒子和大盒子（bigBox）
+    box.addEventListener('mousemove', function (e) {
+        bigBox.style.display = 'block'
+        s.style.display = 'block'
+        //(1)放大镜跟着鼠标移动
+        const x = e.pageX - box.offsetLeft
+        const y = e.pageY - box.offsetTop
+        //鼠标在放大镜中间
+        let sX = x - s.offsetWidth / 2
+        let sY = y - s.offsetHeight / 2
+        //(2)判断左右，放大镜（s）不能超出盒子（box）
+        const maxX = box.offsetWidth - s.offsetWidth
+        const maxY = box.offsetHeight - s.offsetHeight
+        if (sX <= 0) {
+            sX = 0
+        } else if (sX >= maxX) {
+            sX = maxX
+        }
+        //(3)判断上下，放大镜（s）不能超出盒子（box）
+        if (sY <= 0) {
+            sY = 0
+        } else if (sY >= maxY) {
+            sY = maxY
+        }
+        s.style.left = sX + 'px'
+        s.style.top = sY + 'px'
+        //大盒子（bigBox）里面的图片（img）跟随小盒子（box）移动
+        img.style.left = -x * 3.2 + 'px'
+        img.style.top = -y * 3.2 + 'px'
+    })
+    //2.鼠标离开box盒子就隐藏放大镜(s)盒子和大盒子（bigBox）
+    box.addEventListener('mouseout', function (e) {
+        bigBox.style.display = 'none'
+        s.style.display = 'none'
+    })
+    box.addEventListener('mouseover', function (e) {
+        bigBox.style.display = 'block'
+        s.style.display = 'block'
+    })
+    box.onclick = function (e) {
+        console.log(e.pageX);
+    }
+
+</script>
+</body>
+</html>
