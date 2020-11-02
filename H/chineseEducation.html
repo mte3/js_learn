@@ -1,0 +1,945 @@
+
+
+<html>
+<head>
+    <title>中华教育会</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <SCRIPT language=javascript>
+        var colNum = 10;
+        var rowNum = 10;
+        var colWordNum = 14;
+        var rowWordNum = 14;
+        var totalNum=rowNum*colNum;
+        var selectRowNum=-1;
+        var selectColNum=-1;
+        var hitIndexStr="";
+
+        var bgColor1="#66cc66";
+        var bgColor2="#ff6666";
+        var bgColor3="#ffff00";
+
+        function handleTd(num){
+            initalTd();
+            var isRow=false;
+            var isCol=false;
+
+            var thisTd=eval('document.all.td'+num);
+            var thisInput=eval('document.form.input'+num);
+            var thisHidden=eval('document.form.hidden'+num);
+
+            thisTd.style.backgroundColor=bgColor3;
+
+            thisInput.style.backgroundColor=bgColor3;
+            thisInput.select();
+            thisInput.focus();
+
+            //判断选择的字块是不是标志字块
+            if(thisHidden.value=="b")
+            {
+                var upValue=eval('document.form.hiddenUp'+num+'.value');
+                var downValue=eval('document.form.hiddenDown'+num+'.value');
+
+                if(downValue!="b")
+                {
+                    selectRowNum=downValue.substring(0,downValue.length-1);
+                }
+
+                if(upValue!="b")
+                {
+                    selectColNum=upValue;
+                }
+            }
+
+            hitIndexStr=num;
+            //向上
+            var tI=num;
+            while((tI=Number(tI)-Number(colNum))>=0)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+                if(thatHidden.value!="a")
+                {
+                    var upValue=eval('document.form.hiddenUp'+tI+'.value');
+                    if(upValue!="b")
+                    {
+                        selectColNum=upValue;
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor2;
+                    thatInput.style.backgroundColor=bgColor2;
+
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+            //向下
+            tI=num;
+            while((tI=Number(tI)+Number(colNum))<totalNum)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+
+                if(thatHidden.value!="a")
+                {
+                    var upValue=eval('document.form.hiddenUp'+tI+'.value');
+                    if(upValue!="b")
+                    {
+                        selectColNum=upValue;
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor2;
+                    thatInput.style.backgroundColor=bgColor2;
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+
+            //横向比较
+            var lineMax=(Math.floor(num/colNum)+1)*colNum-1;
+            var lineMin=(Math.floor(num/colNum)*colNum)
+            //向左
+            tI=num;
+            while((tI=Number(tI)-1)<=lineMax && tI>=lineMin)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+                if(thatHidden.value!="a")
+                {
+                    var downValue=eval('document.form.hiddenDown'+tI+'.value');
+                    if(downValue!="b")
+                    {
+                        selectRowNum=downValue.substring(0,downValue.length-1);
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor1;
+                    thatInput.style.backgroundColor=bgColor1;
+
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+            //向右
+            tI=num;
+            while((tI=Number(tI)+1)<=lineMax && tI>=lineMin)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+
+                if(thatHidden.value!="a")
+                {
+                    //isRow=true;
+                    var downValue=eval('document.form.hiddenDown'+tI+'.value');
+                    if(downValue!="b")
+                    {
+                        selectRowNum=downValue.substring(0,downValue.length-1);
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor1;
+                    thatInput.style.backgroundColor=bgColor1;
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+
+            if(selectRowNum!=-1)
+            {
+                var thisWordTd=eval('document.all.rowTd'+selectRowNum);
+                thisWordTd.style.backgroundColor=bgColor1;
+            }
+            if(selectColNum!=-1)
+            {
+                var thisWordTd=eval('document.all.colTd'+selectColNum);
+                thisWordTd.style.backgroundColor=bgColor2;
+            }
+
+
+        }
+
+        function moveTo(num){
+            var nKeyCode = window.event.keyCode;
+            var tI;
+            switch (nKeyCode)
+            {
+                case 38:// 如果动作是方向键[上]
+                {
+                    tI=num;
+                    if((tI=Number(tI)-Number(colNum))>=0)
+                    {
+                        var thatHidden=eval('document.form.hidden'+tI);
+                        if(thatHidden.value!="a")
+                        {
+                            handleTd(tI);
+                        }
+                    }
+                    break;
+                }
+                case 39:// 如果动作是方向键[右]
+                {
+                    tI=num;
+                    if((tI=Number(tI)+1)<(Math.floor(tI/colNum)+1)*colNum && tI<totalNum)
+                    {
+                        var thatHidden=eval('document.form.hidden'+tI);
+
+                        if(thatHidden.value!="a")
+                        {
+                            handleTd(tI);
+                        }
+                    }
+                    break;
+                }
+
+                case 37:// 如果动作是方向键[左]
+                {
+                    tI=num;
+                    if((tI=Number(tI)-1)>=Math.floor(tI/colNum)*colNum && tI>=0)
+                    {
+                        var thatHidden=eval('document.form.hidden'+tI);
+                        if(thatHidden.value!="a")
+                        {
+                            handleTd(tI);
+                        }
+                    }
+                    break;
+                }
+                case 40:// 如果动作是方向键[下]
+                {
+                    tI=num;
+                    if((tI=Number(tI)+Number(colNum))<totalNum)
+                    {
+                        var thatHidden=eval('document.form.hidden'+tI);
+
+                        if(thatHidden.value!="a")
+                        {
+                            handleTd(tI);
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+
+        function initalTd(){
+            var i;
+            var corssStr="";
+
+            if(selectRowNum!=-1)
+            {
+                var thisWordTd=eval('document.all.rowTd'+selectRowNum);
+                thisWordTd.style.backgroundColor="#ffffff";
+
+                selectRowNum=-1;
+            }
+
+            if(selectColNum!=-1)
+            {
+                var thisWordTd=eval('document.all.colTd'+selectColNum);
+                thisWordTd.style.backgroundColor="#ffffff";
+
+                selectColNum=-1;
+            }
+
+            if(hitIndexStr!="")
+            {
+                var hitIndexArray=new Array();
+                hitIndexArray=hitIndexStr.toString().split(",");
+
+                for(i=0;i<hitIndexArray.length;i++)
+                {
+                    var thisTd=eval('document.all.td'+hitIndexArray[i]);
+                    var thisInput=eval('document.form.input'+hitIndexArray[i]);
+
+                    thisTd.style.backgroundColor="#ffffff";
+                    thisInput.style.backgroundColor="#ffffff";
+                }
+
+                hitIndexStr="";
+            }
+        }
+
+        function checkdata()
+        {
+
+            var i;
+            var crossWordStr="";
+            for(i=0;i<totalNum;i++)
+            {
+                if(eval('document.form.hidden'+i+'.value')=="a")
+                    crossWordStr=crossWordStr+"|a";
+                else
+                    crossWordStr=crossWordStr+"|"+eval('document.form.input'+i+'.value');
+            }
+            crossWordStr=crossWordStr.substring(1,crossWordStr.length);
+
+            form.crossWordStr.value=crossWordStr;
+            form.crossAnswerStr.value=crossAnswerStr;
+            window.form.submit();
+        }
+
+        //提示
+        var showTipCount=0;
+        var showTipClick=0;
+        var crossAnswerStr="";
+        var crossAnswerArray=new Array();
+        crossAnswerArray=crossAnswerStr.toString().split("|");
+        function showTip()
+        {
+            if(showTipCount<=0)
+            {
+                form.showTipButton.value="提示(积分不够)";
+                form.showTipButton.disabled=true;
+                return false;
+            }
+            else
+            {
+                showTipCount=showTipCount-1;
+                showTipClick=showTipClick+1;
+                document.form.showTipClick.value=showTipClick;
+                var i;
+                var crossWordStr="";
+                for(i=0;i<totalNum;i++)
+                {
+                    if(eval('document.form.hidden'+i+'.value')!="a")
+                        if(eval('document.form.input'+i+'.value')=="")
+                        {
+                            var tipInput=eval('document.form.input'+i);
+                            tipInput.value=crossAnswerArray[i];
+                            handleTd(i);
+                            break;
+                        }
+
+                }
+
+                form.showTipButton.value="提示(剩余"+showTipCount+"次)";
+                if(showTipCount<=0)
+                    form.showTipButton.disabled=true;
+            }
+        }
+
+        function handleTipTd(num){
+            handleTd(num);
+        }
+
+        function handleTipTd2(num){
+            initalTd();
+            var isRow=false;
+            var isCol=false;
+
+
+            var thisTd=eval('document.all.td'+num);
+            var thisInput=eval('document.form.input'+num);
+            var thisHidden=eval('document.form.hidden'+num);
+
+            thisTd.style.backgroundColor=bgColor3;
+
+            thisInput.style.backgroundColor=bgColor3;
+
+            //判断选择的字块是不是标志字块
+            if(thisHidden.value=="b")
+            {
+                var upValue=eval('document.form.hiddenUp'+num+'.value');
+                var downValue=eval('document.form.hiddenDown'+num+'.value');
+
+                if(downValue!="b")
+                {
+                    selectRowNum=downValue.substring(0,downValue.length-1);
+                }
+
+                if(upValue!="b")
+                {
+                    selectColNum=upValue;
+                }
+            }
+
+            hitIndexStr=num;
+            //向上
+            var tI=num;
+            while((tI=Number(tI)-Number(colNum))>=0)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+                if(thatHidden.value!="a")
+                {
+                    var upValue=eval('document.form.hiddenUp'+tI+'.value');
+                    if(upValue!="b")
+                    {
+                        selectColNum=upValue;
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor2;
+                    thatInput.style.backgroundColor=bgColor2;
+
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+            //向下
+            tI=num;
+            while((tI=Number(tI)+Number(colNum))<totalNum)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+
+                if(thatHidden.value!="a")
+                {
+                    var upValue=eval('document.form.hiddenUp'+tI+'.value');
+                    if(upValue!="b")
+                    {
+                        selectColNum=upValue;
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor2;
+                    thatInput.style.backgroundColor=bgColor2;
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+
+            //横向比较
+            var lineMax=(Math.floor(num/colNum)+1)*colNum-1;
+            var lineMin=(Math.floor(num/colNum)*colNum)
+            //向左
+            tI=num;
+            while((tI=Number(tI)-1)<=lineMax && tI>=lineMin)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+                if(thatHidden.value!="a")
+                {
+                    var downValue=eval('document.form.hiddenDown'+tI+'.value');
+                    if(downValue!="b")
+                    {
+                        selectRowNum=downValue.substring(0,downValue.length-1);
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor1;
+                    thatInput.style.backgroundColor=bgColor1;
+
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+            //向右
+            tI=num;
+            while((tI=Number(tI)+1)<=lineMax && tI>=lineMin)
+            {
+
+                var thatHidden=eval('document.form.hidden'+tI);
+
+                if(thatHidden.value!="a")
+                {
+                    //isRow=true;
+                    var downValue=eval('document.form.hiddenDown'+tI+'.value');
+                    if(downValue!="b")
+                    {
+                        selectRowNum=downValue.substring(0,downValue.length-1);
+                    }
+
+                    var thatTd=eval('document.all.td'+tI);
+                    var thatInput=eval('document.form.input'+tI);
+
+                    thatTd.style.backgroundColor=bgColor1;
+                    thatInput.style.backgroundColor=bgColor1;
+                    hitIndexStr=hitIndexStr+","+tI;
+                }else
+                    break;
+            }
+
+            if(selectRowNum!=-1)
+            {
+                var thisWordTd=eval('document.all.rowTd'+selectRowNum);
+                thisWordTd.style.backgroundColor=bgColor1;
+            }
+            if(selectColNum!=-1)
+            {
+                var thisWordTd=eval('document.all.colTd'+selectColNum);
+                thisWordTd.style.backgroundColor=bgColor2;
+            }
+        }
+
+        function changeRowTdNumber(src,num){
+            //如果敲下的是回车
+            var nKeyCode = window.event.keyCode;
+            var tI;
+            switch (nKeyCode)
+            {
+                case 13:// 如果回车
+                {
+                    inputRowTdNumber(src,num);
+                }
+            }
+        }
+
+        function inputRowTdNumber(src,num){
+
+            var srcStr=src.value;
+            var Checkblank = /^(\s*|(\　)|(\.))*$/;
+            if(!Checkblank.test(srcStr))
+            {
+                srcStr=srcStr.replace(/^\s+|\s+$/,"");
+                //横向比较
+                var lineMax=(Math.floor(num/colNum)+1)*colNum-1;
+                var lineMin=(Math.floor(num/colNum)*colNum);
+
+                tI=num;
+                var tdInputNum=1;
+                while((tI=Number(tI)+1)<=lineMax && tI>=lineMin)
+                {
+
+                    var thatHidden=eval('document.form.hidden'+tI);
+
+                    if(thatHidden.value!="a")
+                        ++tdInputNum;
+                    else
+                        break;
+                }
+                var loopNum=tdInputNum>srcStr.length?srcStr.length:tdInputNum;
+
+                var thisInput;
+                for(var i=0;i<loopNum;i++,num++)
+                {
+                    thisInput=eval('document.form.input'+num);
+                    thisInput.value=srcStr.charAt(i);
+                }
+
+                src.value=srcStr;
+            }
+
+        }
+
+        function changeColTdNumber(src,num){
+            //如果敲下的是回车
+            var nKeyCode = window.event.keyCode;
+            var tI;
+            switch (nKeyCode)
+            {
+                case 13:// 如果回车
+                {
+                    inputColTdNumber(src,num);
+                }
+            }
+        }
+
+        function inputColTdNumber(src,num){
+
+            var srcStr=src.value;
+            var Checkblank = /^(\s*|(\　)|(\.))*$/;
+            if(!Checkblank.test(srcStr))
+            {
+                srcStr=srcStr.replace(/^\s+|\s+$/,"");
+                tI=num;
+                var tdInputNum=1;
+                while((tI=Number(tI)+Number(colNum))<totalNum)
+                {
+
+                    var thatHidden=eval('document.form.hidden'+tI);
+
+                    if(thatHidden.value!="a")
+                        ++tdInputNum;
+                    else
+                        break;
+                }
+
+                var loopNum=tdInputNum>srcStr.length?srcStr.length:tdInputNum;
+
+                var thisInput;
+                for(var i=0;i<loopNum;i++,num=num+Number(colNum))
+                {
+                    thisInput=eval('document.form.input'+num);
+                    thisInput.value=srcStr.charAt(i);
+                }
+
+                src.value=srcStr;
+            }
+        }
+
+
+    </script>
+</head>
+<style>
+
+</style>
+
+<body bgcolor="#2e2e2e" text="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" >
+
+<table style="BORDER-RIGHT: #000000 1px solid; BORDER-LEFT: #000000 1px solid; MARGIN: 0px auto;BORDER-BOTTOM: #000000 1px solid;" width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#FFFFFF">
+    <tr>
+
+        <td align="center">
+            <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#ffffff">
+                <tr>
+                    <td>
+
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                    <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td><b>小提示：</b>在填字格子中，可以按键盘方向键选择不同的格子。<br>
+                                                <br>
+                                                左右两边的填字提示下面的输入框里，可以输入完整的填字答案，然后按回车，或者点其它地方，答案会自动填入填字表格中。</td>
+                                        </tr>
+                                    </table>
+                                    <br>
+
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr valign="top">
+                                            <td align="center" width="25%">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td bgcolor="#000000">
+                                                            <table width="100%" border="0" cellspacing="1" cellpadding="4" style="font-size: 14px;">
+                                                                <tr>
+                                                                    <td bgcolor="#666666" align="center"><font size="-1" color="#FFFFFF">横 列</font></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd1" onclick='javascript:handleTipTd2(0);' style='CURSOR:hand'><font color='red'>一</font>.&nbsp;中国共产党于1927年8月1日在江西举行的武装起义<br>
+                                                                        <input type="text" name="rowInput1" size="15" onKeyUp="javascript:changeRowTdNumber(this,0);" onFocus="javascript:handleTipTd2(0);" onBlur="javascript:inputRowTdNumber(this,0);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=中国共产党于1927年8月1日在江西举行的武装起义" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd2" onclick='javascript:handleTipTd2(6);' style='CURSOR:hand'><font color='red'>二</font>.&nbsp;新疆维吾尔自治区的首府<br>
+                                                                        <input type="text" name="rowInput2" size="15" onKeyUp="javascript:changeRowTdNumber(this,6);" onFocus="javascript:handleTipTd2(6);" onBlur="javascript:inputRowTdNumber(this,6);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=新疆维吾尔自治区的首府" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd3" onclick='javascript:handleTipTd2(13);' style='CURSOR:hand'><font color='red'>三</font>.&nbsp;蒙古人民共和国的首都<br>
+                                                                        <input type="text" name="rowInput3" size="15" onKeyUp="javascript:changeRowTdNumber(this,13);" onFocus="javascript:handleTipTd2(13);" onBlur="javascript:inputRowTdNumber(this,13);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=蒙古人民共和国的首都" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd4" onclick='javascript:handleTipTd2(20);' style='CURSOR:hand'><font color='red'>四</font>.&nbsp;地球最北端，且面积最小的大洋<br>
+                                                                        <input type="text" name="rowInput4" size="15" onKeyUp="javascript:changeRowTdNumber(this,20);" onFocus="javascript:handleTipTd2(20);" onBlur="javascript:inputRowTdNumber(this,20);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=地球最北端，且面积最小的大洋" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd5" onclick='javascript:handleTipTd2(32);' style='CURSOR:hand'><font color='red'>五</font>.&nbsp;成语，形容艺术技巧高超，不是人力所能达到的<br>
+                                                                        <input type="text" name="rowInput5" size="15" onKeyUp="javascript:changeRowTdNumber(this,32);" onFocus="javascript:handleTipTd2(32);" onBlur="javascript:inputRowTdNumber(this,32);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=成语，形容艺术技巧高超，不是人力所能达到的" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd6" onclick='javascript:handleTipTd2(41);' style='CURSOR:hand'><font color='red'>六</font>.&nbsp;《水浒传》中好汉燕青的绰号<br>
+                                                                        <input type="text" name="rowInput6" size="15" onKeyUp="javascript:changeRowTdNumber(this,41);" onFocus="javascript:handleTipTd2(41);" onBlur="javascript:inputRowTdNumber(this,41);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=《水浒传》中好汉燕青的绰号" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd7" onclick='javascript:handleTipTd2(47);' style='CURSOR:hand'><font color='red'>七</font>.&nbsp;台湾第三长的河流，曾是台湾唯一具有航运功能的河流<br>
+                                                                        <input type="text" name="rowInput7" size="15" onKeyUp="javascript:changeRowTdNumber(this,47);" onFocus="javascript:handleTipTd2(47);" onBlur="javascript:inputRowTdNumber(this,47);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=台湾第三长的河流，曾是台湾唯一具有航运功能的河流" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd8" onclick='javascript:handleTipTd2(50);' style='CURSOR:hand'><font color='red'>八</font>.&nbsp;虚构的美国超级英雄，胸口有S标志<br>
+                                                                        <input type="text" name="rowInput8" size="15" onKeyUp="javascript:changeRowTdNumber(this,50);" onFocus="javascript:handleTipTd2(50);" onBlur="javascript:inputRowTdNumber(this,50);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=虚构的美国超级英雄，胸口有S标志" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd9" onclick='javascript:handleTipTd2(62);' style='CURSOR:hand'><font color='red'>九</font>.&nbsp;李颀的诗《古从军行》中“闻道玉门犹被遮”的下一句<br>
+                                                                        <input type="text" name="rowInput9" size="15" onKeyUp="javascript:changeRowTdNumber(this,62);" onFocus="javascript:handleTipTd2(62);" onBlur="javascript:inputRowTdNumber(this,62);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=李颀的诗《古从军行》中“闻道玉门犹被遮”的下一句" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd10" onclick='javascript:handleTipTd2(80);' style='CURSOR:hand'><font color='red'>十</font>.&nbsp;一类古钱币，正面铸有国号的古钱币，如“大宋元宝”等<br>
+                                                                        <input type="text" name="rowInput10" size="15" onKeyUp="javascript:changeRowTdNumber(this,80);" onFocus="javascript:handleTipTd2(80);" onBlur="javascript:inputRowTdNumber(this,80);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=一类古钱币，正面铸有国号的古钱币，如“大宋元宝”等" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd11" onclick='javascript:handleTipTd2(84);' style='CURSOR:hand'><font color='red'>十一</font>.&nbsp;不施脂粉的女子面颜，泛指不刻意妆点自己的女子<br>
+                                                                        <input type="text" name="rowInput11" size="15" onKeyUp="javascript:changeRowTdNumber(this,84);" onFocus="javascript:handleTipTd2(84);" onBlur="javascript:inputRowTdNumber(this,84);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=不施脂粉的女子面颜，泛指不刻意妆点自己的女子" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd12" onclick='javascript:handleTipTd2(87);' style='CURSOR:hand'><font color='red'>十二</font>.&nbsp;一种罐装压缩肉糜，英文是Spam<br>
+                                                                        <input type="text" name="rowInput12" size="15" onKeyUp="javascript:changeRowTdNumber(this,87);" onFocus="javascript:handleTipTd2(87);" onBlur="javascript:inputRowTdNumber(this,87);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=一种罐装压缩肉糜，英文是Spam" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd13" onclick='javascript:handleTipTd2(92);' style='CURSOR:hand'><font color='red'>十三</font>.&nbsp;学校班级上课前，班长或班干部会喊的一句口令<br>
+                                                                        <input type="text" name="rowInput13" size="15" onKeyUp="javascript:changeRowTdNumber(this,92);" onFocus="javascript:handleTipTd2(92);" onBlur="javascript:inputRowTdNumber(this,92);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=学校班级上课前，班长或班干部会喊的一句口令" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="rowTd14" onclick='javascript:handleTipTd2(95);' style='CURSOR:hand'><font color='red'>十四</font>.&nbsp;我国东南地区对每年春天时，气温开始回暖而湿度开始回升的现象的称呼<br>
+                                                                        <input type="text" name="rowInput14" size="15" onKeyUp="javascript:changeRowTdNumber(this,95);" onFocus="javascript:handleTipTd2(95);" onBlur="javascript:inputRowTdNumber(this,95);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=我国东南地区对每年春天时，气温开始回暖而湿度开始回升的现象的称呼" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <form name="form" method="post" action="crossfinish.asp" onSubmit="return checkdata()" >
+                                                <td align="center">
+                                                    <table border='0' cellspacing='0' cellpadding='0'><tr><td bgcolor='#000000'><table border='0' cellspacing='1' cellpadding='0'><tr><td width='40' height='40' id='td0' onkeyup='javascript:moveTo(0);' onclick='javascript:handleTd(0);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table0' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp0' type='hidden' value='1'><img id='imgUp0' src='/cross/images/1.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input0' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden0' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown0' type='hidden' value='1a'><img id='imgDown0' src='/cross/images/1a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td1' onkeyup='javascript:moveTo(1);' onclick='javascript:handleTd(1);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table1' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp1' type='hidden' value='b'><img id='imgUp1' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input1' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden1' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown1' type='hidden' value='b'><img id='imgDown1' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td2' onkeyup='javascript:moveTo(2);' onclick='javascript:handleTd(2);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table2' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp2' type='hidden' value='b'><img id='imgUp2' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input2' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden2' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown2' type='hidden' value='b'><img id='imgDown2' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td3' onkeyup='javascript:moveTo(3);' onclick='javascript:handleTd(3);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table3' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp3' type='hidden' value='6'><img id='imgUp3' src='/cross/images/6.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input3' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden3' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown3' type='hidden' value='b'><img id='imgDown3' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td4' bgcolor='#333333'><input name='hiddenUp4' type='hidden' value='a'><input name='hidden4' type='hidden' value='a'><input name='hiddenDown4' type='hidden' value='a'></td><td width='40' height='40' id='td5' bgcolor='#333333'><input name='hiddenUp5' type='hidden' value='a'><input name='hidden5' type='hidden' value='a'><input name='hiddenDown5' type='hidden' value='a'></td><td width='40' height='40' id='td6' onkeyup='javascript:moveTo(6);' onclick='javascript:handleTd(6);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table6' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp6' type='hidden' value='10'><img id='imgUp6' src='/cross/images/10.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input6' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden6' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown6' type='hidden' value='2a'><img id='imgDown6' src='/cross/images/2a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td7' onkeyup='javascript:moveTo(7);' onclick='javascript:handleTd(7);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table7' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp7' type='hidden' value='b'><img id='imgUp7' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input7' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden7' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown7' type='hidden' value='b'><img id='imgDown7' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td8' onkeyup='javascript:moveTo(8);' onclick='javascript:handleTd(8);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table8' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp8' type='hidden' value='12'><img id='imgUp8' src='/cross/images/12.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input8' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden8' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown8' type='hidden' value='b'><img id='imgDown8' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td9' onkeyup='javascript:moveTo(9);' onclick='javascript:handleTd(9);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table9' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp9' type='hidden' value='b'><img id='imgUp9' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input9' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden9' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown9' type='hidden' value='b'><img id='imgDown9' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td10' onkeyup='javascript:moveTo(10);' onclick='javascript:handleTd(10);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table10' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp10' type='hidden' value='b'><img id='imgUp10' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input10' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden10' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown10' type='hidden' value='b'><img id='imgDown10' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td11' bgcolor='#333333'><input name='hiddenUp11' type='hidden' value='a'><input name='hidden11' type='hidden' value='a'><input name='hiddenDown11' type='hidden' value='a'></td><td width='40' height='40' id='td12' bgcolor='#333333'><input name='hiddenUp12' type='hidden' value='a'><input name='hidden12' type='hidden' value='a'><input name='hiddenDown12' type='hidden' value='a'></td><td width='40' height='40' id='td13' onkeyup='javascript:moveTo(13);' onclick='javascript:handleTd(13);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table13' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp13' type='hidden' value='b'><img id='imgUp13' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input13' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden13' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown13' type='hidden' value='3a'><img id='imgDown13' src='/cross/images/3a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td14' onkeyup='javascript:moveTo(14);' onclick='javascript:handleTd(14);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table14' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp14' type='hidden' value='b'><img id='imgUp14' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input14' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden14' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown14' type='hidden' value='b'><img id='imgDown14' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td15' onkeyup='javascript:moveTo(15);' onclick='javascript:handleTd(15);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table15' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp15' type='hidden' value='b'><img id='imgUp15' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input15' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden15' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown15' type='hidden' value='b'><img id='imgDown15' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td16' onkeyup='javascript:moveTo(16);' onclick='javascript:handleTd(16);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table16' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp16' type='hidden' value='b'><img id='imgUp16' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input16' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden16' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown16' type='hidden' value='b'><img id='imgDown16' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td17' bgcolor='#333333'><input name='hiddenUp17' type='hidden' value='a'><input name='hidden17' type='hidden' value='a'><input name='hiddenDown17' type='hidden' value='a'></td><td width='40' height='40' id='td18' onkeyup='javascript:moveTo(18);' onclick='javascript:handleTd(18);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table18' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp18' type='hidden' value='b'><img id='imgUp18' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input18' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden18' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown18' type='hidden' value='b'><img id='imgDown18' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td19' bgcolor='#333333'><input name='hiddenUp19' type='hidden' value='a'><input name='hidden19' type='hidden' value='a'><input name='hiddenDown19' type='hidden' value='a'></td></tr><tr><td width='40' height='40' id='td20' onkeyup='javascript:moveTo(20);' onclick='javascript:handleTd(20);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table20' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp20' type='hidden' value='b'><img id='imgUp20' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input20' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden20' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown20' type='hidden' value='4a'><img id='imgDown20' src='/cross/images/4a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td21' onkeyup='javascript:moveTo(21);' onclick='javascript:handleTd(21);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table21' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp21' type='hidden' value='b'><img id='imgUp21' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input21' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden21' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown21' type='hidden' value='b'><img id='imgDown21' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td22' onkeyup='javascript:moveTo(22);' onclick='javascript:handleTd(22);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table22' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp22' type='hidden' value='4'><img id='imgUp22' src='/cross/images/4.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input22' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden22' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown22' type='hidden' value='b'><img id='imgDown22' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td23' bgcolor='#333333'><input name='hiddenUp23' type='hidden' value='a'><input name='hidden23' type='hidden' value='a'><input name='hiddenDown23' type='hidden' value='a'></td><td width='40' height='40' id='td24' bgcolor='#333333'><input name='hiddenUp24' type='hidden' value='a'><input name='hidden24' type='hidden' value='a'><input name='hiddenDown24' type='hidden' value='a'></td><td width='40' height='40' id='td25' bgcolor='#333333'><input name='hiddenUp25' type='hidden' value='a'><input name='hidden25' type='hidden' value='a'><input name='hiddenDown25' type='hidden' value='a'></td><td width='40' height='40' id='td26' onkeyup='javascript:moveTo(26);' onclick='javascript:handleTd(26);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table26' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp26' type='hidden' value='b'><img id='imgUp26' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input26' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden26' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown26' type='hidden' value='b'><img id='imgDown26' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td27' bgcolor='#333333'><input name='hiddenUp27' type='hidden' value='a'><input name='hidden27' type='hidden' value='a'><input name='hiddenDown27' type='hidden' value='a'></td><td width='40' height='40' id='td28' onkeyup='javascript:moveTo(28);' onclick='javascript:handleTd(28);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table28' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp28' type='hidden' value='b'><img id='imgUp28' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input28' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden28' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown28' type='hidden' value='b'><img id='imgDown28' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td29' bgcolor='#333333'><input name='hiddenUp29' type='hidden' value='a'><input name='hidden29' type='hidden' value='a'><input name='hiddenDown29' type='hidden' value='a'></td></tr><tr><td width='40' height='40' id='td30' onkeyup='javascript:moveTo(30);' onclick='javascript:handleTd(30);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table30' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp30' type='hidden' value='b'><img id='imgUp30' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input30' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden30' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown30' type='hidden' value='b'><img id='imgDown30' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td31' bgcolor='#333333'><input name='hiddenUp31' type='hidden' value='a'><input name='hidden31' type='hidden' value='a'><input name='hiddenDown31' type='hidden' value='a'></td><td width='40' height='40' id='td32' onkeyup='javascript:moveTo(32);' onclick='javascript:handleTd(32);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table32' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp32' type='hidden' value='b'><img id='imgUp32' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input32' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden32' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown32' type='hidden' value='5a'><img id='imgDown32' src='/cross/images/5a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td33' onkeyup='javascript:moveTo(33);' onclick='javascript:handleTd(33);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table33' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp33' type='hidden' value='b'><img id='imgUp33' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input33' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden33' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown33' type='hidden' value='b'><img id='imgDown33' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td34' onkeyup='javascript:moveTo(34);' onclick='javascript:handleTd(34);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table34' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp34' type='hidden' value='b'><img id='imgUp34' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input34' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden34' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown34' type='hidden' value='b'><img id='imgDown34' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td35' onkeyup='javascript:moveTo(35);' onclick='javascript:handleTd(35);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table35' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp35' type='hidden' value='8'><img id='imgUp35' src='/cross/images/8.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input35' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden35' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown35' type='hidden' value='b'><img id='imgDown35' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td36' bgcolor='#333333'><input name='hiddenUp36' type='hidden' value='a'><input name='hidden36' type='hidden' value='a'><input name='hiddenDown36' type='hidden' value='a'></td><td width='40' height='40' id='td37' onkeyup='javascript:moveTo(37);' onclick='javascript:handleTd(37);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table37' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp37' type='hidden' value='11'><img id='imgUp37' src='/cross/images/11.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input37' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden37' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown37' type='hidden' value='b'><img id='imgDown37' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td38' bgcolor='#333333'><input name='hiddenUp38' type='hidden' value='a'><input name='hidden38' type='hidden' value='a'><input name='hiddenDown38' type='hidden' value='a'></td><td width='40' height='40' id='td39' onkeyup='javascript:moveTo(39);' onclick='javascript:handleTd(39);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table39' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp39' type='hidden' value='13'><img id='imgUp39' src='/cross/images/13.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input39' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden39' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown39' type='hidden' value='b'><img id='imgDown39' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td40' bgcolor='#333333'><input name='hiddenUp40' type='hidden' value='a'><input name='hidden40' type='hidden' value='a'><input name='hiddenDown40' type='hidden' value='a'></td><td width='40' height='40' id='td41' onkeyup='javascript:moveTo(41);' onclick='javascript:handleTd(41);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table41' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp41' type='hidden' value='3'><img id='imgUp41' src='/cross/images/3.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input41' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden41' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown41' type='hidden' value='6a'><img id='imgDown41' src='/cross/images/6a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td42' onkeyup='javascript:moveTo(42);' onclick='javascript:handleTd(42);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table42' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp42' type='hidden' value='b'><img id='imgUp42' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input42' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden42' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown42' type='hidden' value='b'><img id='imgDown42' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td43' bgcolor='#333333'><input name='hiddenUp43' type='hidden' value='a'><input name='hidden43' type='hidden' value='a'><input name='hiddenDown43' type='hidden' value='a'></td><td width='40' height='40' id='td44' bgcolor='#333333'><input name='hiddenUp44' type='hidden' value='a'><input name='hidden44' type='hidden' value='a'><input name='hiddenDown44' type='hidden' value='a'></td><td width='40' height='40' id='td45' onkeyup='javascript:moveTo(45);' onclick='javascript:handleTd(45);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table45' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp45' type='hidden' value='b'><img id='imgUp45' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input45' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden45' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown45' type='hidden' value='b'><img id='imgDown45' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td46' bgcolor='#333333'><input name='hiddenUp46' type='hidden' value='a'><input name='hidden46' type='hidden' value='a'><input name='hiddenDown46' type='hidden' value='a'></td><td width='40' height='40' id='td47' onkeyup='javascript:moveTo(47);' onclick='javascript:handleTd(47);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table47' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp47' type='hidden' value='b'><img id='imgUp47' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input47' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden47' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown47' type='hidden' value='7a'><img id='imgDown47' src='/cross/images/7a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td48' onkeyup='javascript:moveTo(48);' onclick='javascript:handleTd(48);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table48' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp48' type='hidden' value='b'><img id='imgUp48' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input48' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden48' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown48' type='hidden' value='b'><img id='imgDown48' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td49' onkeyup='javascript:moveTo(49);' onclick='javascript:handleTd(49);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table49' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp49' type='hidden' value='b'><img id='imgUp49' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input49' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden49' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown49' type='hidden' value='b'><img id='imgDown49' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td50' onkeyup='javascript:moveTo(50);' onclick='javascript:handleTd(50);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table50' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp50' type='hidden' value='2'><img id='imgUp50' src='/cross/images/2.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input50' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden50' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown50' type='hidden' value='8a'><img id='imgDown50' src='/cross/images/8a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td51' onkeyup='javascript:moveTo(51);' onclick='javascript:handleTd(51);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table51' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp51' type='hidden' value='b'><img id='imgUp51' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input51' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden51' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown51' type='hidden' value='b'><img id='imgDown51' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td52' bgcolor='#333333'><input name='hiddenUp52' type='hidden' value='a'><input name='hidden52' type='hidden' value='a'><input name='hiddenDown52' type='hidden' value='a'></td><td width='40' height='40' id='td53' onkeyup='javascript:moveTo(53);' onclick='javascript:handleTd(53);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table53' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp53' type='hidden' value='7'><img id='imgUp53' src='/cross/images/7.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input53' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden53' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown53' type='hidden' value='b'><img id='imgDown53' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td54' bgcolor='#333333'><input name='hiddenUp54' type='hidden' value='a'><input name='hidden54' type='hidden' value='a'><input name='hiddenDown54' type='hidden' value='a'></td><td width='40' height='40' id='td55' onkeyup='javascript:moveTo(55);' onclick='javascript:handleTd(55);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table55' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp55' type='hidden' value='b'><img id='imgUp55' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input55' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden55' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown55' type='hidden' value='b'><img id='imgDown55' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td56' bgcolor='#333333'><input name='hiddenUp56' type='hidden' value='a'><input name='hidden56' type='hidden' value='a'><input name='hiddenDown56' type='hidden' value='a'></td><td width='40' height='40' id='td57' onkeyup='javascript:moveTo(57);' onclick='javascript:handleTd(57);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table57' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp57' type='hidden' value='b'><img id='imgUp57' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input57' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden57' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown57' type='hidden' value='b'><img id='imgDown57' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td58' bgcolor='#333333'><input name='hiddenUp58' type='hidden' value='a'><input name='hidden58' type='hidden' value='a'><input name='hiddenDown58' type='hidden' value='a'></td><td width='40' height='40' id='td59' onkeyup='javascript:moveTo(59);' onclick='javascript:handleTd(59);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table59' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp59' type='hidden' value='b'><img id='imgUp59' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input59' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden59' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown59' type='hidden' value='b'><img id='imgDown59' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td60' onkeyup='javascript:moveTo(60);' onclick='javascript:handleTd(60);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table60' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp60' type='hidden' value='b'><img id='imgUp60' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input60' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden60' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown60' type='hidden' value='b'><img id='imgDown60' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td61' bgcolor='#333333'><input name='hiddenUp61' type='hidden' value='a'><input name='hidden61' type='hidden' value='a'><input name='hiddenDown61' type='hidden' value='a'></td><td width='40' height='40' id='td62' onkeyup='javascript:moveTo(62);' onclick='javascript:handleTd(62);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table62' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp62' type='hidden' value='b'><img id='imgUp62' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input62' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden62' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown62' type='hidden' value='9a'><img id='imgDown62' src='/cross/images/9a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td63' onkeyup='javascript:moveTo(63);' onclick='javascript:handleTd(63);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table63' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp63' type='hidden' value='b'><img id='imgUp63' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input63' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden63' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown63' type='hidden' value='b'><img id='imgDown63' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td64' onkeyup='javascript:moveTo(64);' onclick='javascript:handleTd(64);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table64' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp64' type='hidden' value='b'><img id='imgUp64' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input64' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden64' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown64' type='hidden' value='b'><img id='imgDown64' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td65' onkeyup='javascript:moveTo(65);' onclick='javascript:handleTd(65);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table65' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp65' type='hidden' value='b'><img id='imgUp65' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input65' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden65' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown65' type='hidden' value='b'><img id='imgDown65' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td66' onkeyup='javascript:moveTo(66);' onclick='javascript:handleTd(66);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table66' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp66' type='hidden' value='b'><img id='imgUp66' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input66' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden66' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown66' type='hidden' value='b'><img id='imgDown66' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td67' onkeyup='javascript:moveTo(67);' onclick='javascript:handleTd(67);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table67' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp67' type='hidden' value='b'><img id='imgUp67' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input67' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden67' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown67' type='hidden' value='b'><img id='imgDown67' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td68' onkeyup='javascript:moveTo(68);' onclick='javascript:handleTd(68);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table68' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp68' type='hidden' value='b'><img id='imgUp68' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input68' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden68' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown68' type='hidden' value='b'><img id='imgDown68' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td69' bgcolor='#333333'><input name='hiddenUp69' type='hidden' value='a'><input name='hidden69' type='hidden' value='a'><input name='hiddenDown69' type='hidden' value='a'></td></tr><tr><td width='40' height='40' id='td70' onkeyup='javascript:moveTo(70);' onclick='javascript:handleTd(70);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table70' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp70' type='hidden' value='b'><img id='imgUp70' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input70' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden70' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown70' type='hidden' value='b'><img id='imgDown70' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td71' bgcolor='#333333'><input name='hiddenUp71' type='hidden' value='a'><input name='hidden71' type='hidden' value='a'><input name='hiddenDown71' type='hidden' value='a'></td><td width='40' height='40' id='td72' bgcolor='#333333'><input name='hiddenUp72' type='hidden' value='a'><input name='hidden72' type='hidden' value='a'><input name='hiddenDown72' type='hidden' value='a'></td><td width='40' height='40' id='td73' onkeyup='javascript:moveTo(73);' onclick='javascript:handleTd(73);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table73' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp73' type='hidden' value='b'><img id='imgUp73' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input73' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden73' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown73' type='hidden' value='b'><img id='imgDown73' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td74' bgcolor='#333333'><input name='hiddenUp74' type='hidden' value='a'><input name='hidden74' type='hidden' value='a'><input name='hiddenDown74' type='hidden' value='a'></td><td width='40' height='40' id='td75' bgcolor='#333333'><input name='hiddenUp75' type='hidden' value='a'><input name='hidden75' type='hidden' value='a'><input name='hiddenDown75' type='hidden' value='a'></td><td width='40' height='40' id='td76' bgcolor='#333333'><input name='hiddenUp76' type='hidden' value='a'><input name='hidden76' type='hidden' value='a'><input name='hiddenDown76' type='hidden' value='a'></td><td width='40' height='40' id='td77' onkeyup='javascript:moveTo(77);' onclick='javascript:handleTd(77);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table77' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp77' type='hidden' value='b'><img id='imgUp77' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input77' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden77' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown77' type='hidden' value='b'><img id='imgDown77' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td78' bgcolor='#333333'><input name='hiddenUp78' type='hidden' value='a'><input name='hidden78' type='hidden' value='a'><input name='hiddenDown78' type='hidden' value='a'></td><td width='40' height='40' id='td79' onkeyup='javascript:moveTo(79);' onclick='javascript:handleTd(79);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table79' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp79' type='hidden' value='14'><img id='imgUp79' src='/cross/images/14.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input79' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden79' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown79' type='hidden' value='b'><img id='imgDown79' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td80' onkeyup='javascript:moveTo(80);' onclick='javascript:handleTd(80);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table80' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp80' type='hidden' value='b'><img id='imgUp80' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input80' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden80' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown80' type='hidden' value='10a'><img id='imgDown80' src='/cross/images/10a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td81' onkeyup='javascript:moveTo(81);' onclick='javascript:handleTd(81);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table81' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp81' type='hidden' value='b'><img id='imgUp81' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input81' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden81' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown81' type='hidden' value='b'><img id='imgDown81' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td82' onkeyup='javascript:moveTo(82);' onclick='javascript:handleTd(82);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table82' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp82' type='hidden' value='5'><img id='imgUp82' src='/cross/images/5.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input82' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden82' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown82' type='hidden' value='b'><img id='imgDown82' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td83' bgcolor='#333333'><input name='hiddenUp83' type='hidden' value='a'><input name='hidden83' type='hidden' value='a'><input name='hiddenDown83' type='hidden' value='a'></td><td width='40' height='40' id='td84' onkeyup='javascript:moveTo(84);' onclick='javascript:handleTd(84);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table84' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp84' type='hidden' value='b'><img id='imgUp84' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input84' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden84' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown84' type='hidden' value='11a'><img id='imgDown84' src='/cross/images/11a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td85' onkeyup='javascript:moveTo(85);' onclick='javascript:handleTd(85);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table85' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp85' type='hidden' value='9'><img id='imgUp85' src='/cross/images/9.gif'  width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input85' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden85' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown85' type='hidden' value='b'><img id='imgDown85' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td86' bgcolor='#333333'><input name='hiddenUp86' type='hidden' value='a'><input name='hidden86' type='hidden' value='a'><input name='hiddenDown86' type='hidden' value='a'></td><td width='40' height='40' id='td87' onkeyup='javascript:moveTo(87);' onclick='javascript:handleTd(87);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table87' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp87' type='hidden' value='b'><img id='imgUp87' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input87' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden87' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown87' type='hidden' value='12a'><img id='imgDown87' src='/cross/images/12a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td88' onkeyup='javascript:moveTo(88);' onclick='javascript:handleTd(88);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table88' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp88' type='hidden' value='b'><img id='imgUp88' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input88' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden88' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown88' type='hidden' value='b'><img id='imgDown88' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td89' onkeyup='javascript:moveTo(89);' onclick='javascript:handleTd(89);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table89' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp89' type='hidden' value='b'><img id='imgUp89' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input89' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden89' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown89' type='hidden' value='b'><img id='imgDown89' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td></tr><tr><td width='40' height='40' id='td90' bgcolor='#333333'><input name='hiddenUp90' type='hidden' value='a'><input name='hidden90' type='hidden' value='a'><input name='hiddenDown90' type='hidden' value='a'></td><td width='40' height='40' id='td91' bgcolor='#333333'><input name='hiddenUp91' type='hidden' value='a'><input name='hidden91' type='hidden' value='a'><input name='hiddenDown91' type='hidden' value='a'></td><td width='40' height='40' id='td92' onkeyup='javascript:moveTo(92);' onclick='javascript:handleTd(92);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table92' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp92' type='hidden' value='b'><img id='imgUp92' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input92' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden92' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown92' type='hidden' value='13a'><img id='imgDown92' src='/cross/images/13a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td93' onkeyup='javascript:moveTo(93);' onclick='javascript:handleTd(93);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table93' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp93' type='hidden' value='b'><img id='imgUp93' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input93' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden93' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown93' type='hidden' value='b'><img id='imgDown93' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td94' bgcolor='#333333'><input name='hiddenUp94' type='hidden' value='a'><input name='hidden94' type='hidden' value='a'><input name='hiddenDown94' type='hidden' value='a'></td><td width='40' height='40' id='td95' onkeyup='javascript:moveTo(95);' onclick='javascript:handleTd(95);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table95' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp95' type='hidden' value='b'><img id='imgUp95' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input95' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden95' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown95' type='hidden' value='14a'><img id='imgDown95' src='/cross/images/14a.gif' width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td96' onkeyup='javascript:moveTo(96);' onclick='javascript:handleTd(96);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table96' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp96' type='hidden' value='b'><img id='imgUp96' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input96' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden96' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown96' type='hidden' value='b'><img id='imgDown96' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td97' onkeyup='javascript:moveTo(97);' onclick='javascript:handleTd(97);' bgcolor='#ffffff' style='CURSOR:hand'><table id='table97' width='40' border='0' cellspacing='0' cellpadding='0' height='40'><tr><td height='9'><input name='hiddenUp97' type='hidden' value='b'><img id='imgUp97' src='/cross/images/b.gif'  style='visibility:hidden;' width='40' height='9'></td></tr><tr><td align='center' valign='middle'><input type='text' name='input97' size='1' style='border-left:none; border-right:none; border-top:none; border-bottom:none; solid #000000' maxlength='1'><input type='hidden' name='hidden97' value='b'></td></tr><tr><td  height='12'><input name='hiddenDown97' type='hidden' value='b'><img id='imgDown97' src='/cross/images/b.gif'  style='visibility:hidden;'  width='40' height='12'></td></tr></table></td><td width='40' height='40' id='td98' bgcolor='#333333'><input name='hiddenUp98' type='hidden' value='a'><input name='hidden98' type='hidden' value='a'><input name='hiddenDown98' type='hidden' value='a'></td><td width='40' height='40' id='td99' bgcolor='#333333'><input name='hiddenUp99' type='hidden' value='a'><input name='hidden99' type='hidden' value='a'><input name='hiddenDown99' type='hidden' value='a'></td></tr></table></td></tr></table>
+                                                    <br>
+                                                    <input type="button" value="完  成" onClick="javascript:if (checkdata()==false);" name="button">
+                                                    <br><br><br>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td align="right">
+                                                                <a href='cross_1952.html' title='第1952号在线中文填字游戏'><font color='#000000'>上一条填字</font></a></td><td width="300" align="center">
+
+                                                            <input type="button" value="重新选择" onClick="javascript:window.location.href='index.asp';" name="button22">
+                                                        </td>
+                                                            <td>
+                                                                <a href='cross_1954.html' title='第1954号在线中文填字游戏'><font color='#000000'>下一条填字</font></a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+
+
+                                                    <table width="85%" border="0" cellspacing="5" cellpadding="0">
+                                                        <tr>
+                                                            <td align="center"><font color="#FF0000">注意：你还没有登录网站，这样你就不会被记录积分。我要[<a href="/login.asp"><font color="#000000">登录</font></a>]我要[<a href="/user/service.asp"><font color="#000000">注册</font></a>]
+                                                            </font> </td>
+                                                        </tr>
+                                                    </table>
+
+                                                    <br>
+                                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td align="center"><img src="/images/weixinbanner.gif" width="300"></td>
+                                                        </tr>
+                                                    </table>
+                                                    <br><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                                    <!-- 填字页图片广告, 创建于 08-8-2 -->
+                                                    <ins class="adsbygoogle"
+                                                         style="display:inline-block;width:336px;height:280px"
+                                                         data-ad-client="ca-pub-2981238335252045"
+                                                         data-ad-slot="8945623624"></ins>
+                                                    <script>
+                                                        (adsbygoogle = window.adsbygoogle || []).push({});
+                                                    </script><br><br><br>
+                                                    <input type="hidden" name="d" value="">
+                                                    <input type="hidden" name="crossStr">
+                                                    <input type="hidden" name="crossId" value="4967">
+                                                    <input type="hidden" name="recordId" value="1953">
+                                                    <input type="hidden" name="crossWordStr">
+                                                    <input type="hidden" name="crossAnswerStr">
+                                                    <input type="hidden" name="rowNum" value="10">
+                                                    <input type="hidden" name="colNum" value="10">
+                                                    <input type="hidden" name="rowWordNum" value="14">
+                                                    <input type="hidden" name="colWordNum" value="14">
+                                                    <input type="hidden" name="showTipClick">
+                                                </td>
+                                            </form>
+                                            <td align="center" width="25%">
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td bgcolor="#000000">
+                                                            <table width="100%" border="0" cellspacing="1" cellpadding="4" style="font-size: 14px;">
+                                                                <tr>
+                                                                    <td bgcolor="#666666" align="center"><font size="-1" color="#FFFFFF">纵 列</font></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd1"   style='CURSOR:hand' onclick='javascript:handleTipTd2(0);' >1.&nbsp;我国的重大战略性工程，引水以缓解北方水资源严重短缺的局面<br>
+                                                                        <input type="text" name="colInput1" size="15"  onkeyup="javascript:changeColTdNumber(this,0);" onFocus="javascript:handleTipTd2(0);" onBlur="javascript:inputColTdNumber(this,0);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=我国的重大战略性工程，引水以缓解北方水资源严重短缺的局面" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd2"   style='CURSOR:hand' onclick='javascript:handleTipTd2(50);' >2.&nbsp;凭借强大的军事和经济实力谋求世界霸权的国家，多指美国<br>
+                                                                        <input type="text" name="colInput2" size="15"  onkeyup="javascript:changeColTdNumber(this,50);" onFocus="javascript:handleTipTd2(50);" onBlur="javascript:inputColTdNumber(this,50);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=凭借强大的军事和经济实力谋求世界霸权的国家，多指美国" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd3"   style='CURSOR:hand' onclick='javascript:handleTipTd2(41);' >3.&nbsp;日本幕府时代失去俸禄而流浪的武士<br>
+                                                                        <input type="text" name="colInput3" size="15"  onkeyup="javascript:changeColTdNumber(this,41);" onFocus="javascript:handleTipTd2(41);" onBlur="javascript:inputColTdNumber(this,41);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=日本幕府时代失去俸禄而流浪的武士" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd4"   style='CURSOR:hand' onclick='javascript:handleTipTd2(22);' >4.&nbsp;旧时对在中国的外国人的称呼，含有贬义<br>
+                                                                        <input type="text" name="colInput4" size="15"  onkeyup="javascript:changeColTdNumber(this,22);" onFocus="javascript:handleTipTd2(22);" onBlur="javascript:inputColTdNumber(this,22);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=旧时对在中国的外国人的称呼，含有贬义" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd5"   style='CURSOR:hand' onclick='javascript:handleTipTd2(82);' >5.&nbsp;唐代诗人，与郎士元合称为“钱郎”，作有《送僧归日本》等<br>
+                                                                        <input type="text" name="colInput5" size="15"  onkeyup="javascript:changeColTdNumber(this,82);" onFocus="javascript:handleTipTd2(82);" onBlur="javascript:inputColTdNumber(this,82);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=唐代诗人，与郎士元合称为“钱郎”，作有《送僧归日本》等" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd6"   style='CURSOR:hand' onclick='javascript:handleTipTd2(3);' >6.&nbsp;浙江省中部城市，是著名的小商品集散地<br>
+                                                                        <input type="text" name="colInput6" size="15"  onkeyup="javascript:changeColTdNumber(this,3);" onFocus="javascript:handleTipTd2(3);" onBlur="javascript:inputColTdNumber(this,3);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=浙江省中部城市，是著名的小商品集散地" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd7"   style='CURSOR:hand' onclick='javascript:handleTipTd2(53);' >7.&nbsp;古代传说的一把宝剑，与“莫邪剑”是一对<br>
+                                                                        <input type="text" name="colInput7" size="15"  onkeyup="javascript:changeColTdNumber(this,53);" onFocus="javascript:handleTipTd2(53);" onBlur="javascript:inputColTdNumber(this,53);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=古代传说的一把宝剑，与“莫邪剑”是一对" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd8"   style='CURSOR:hand' onclick='javascript:handleTipTd2(35);' >8.&nbsp;资本主义生产完成从工场手工业向机器大工业过渡的阶段，又称“产业革命”<br>
+                                                                        <input type="text" name="colInput8" size="15"  onkeyup="javascript:changeColTdNumber(this,35);" onFocus="javascript:handleTipTd2(35);" onBlur="javascript:inputColTdNumber(this,35);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=资本主义生产完成从工场手工业向机器大工业过渡的阶段，又称“产业革命”" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd9"   style='CURSOR:hand' onclick='javascript:handleTipTd2(85);' >9.&nbsp;孔子的门徒之一，被后人尊为“复圣”<br>
+                                                                        <input type="text" name="colInput9" size="15"  onkeyup="javascript:changeColTdNumber(this,85);" onFocus="javascript:handleTipTd2(85);" onBlur="javascript:inputColTdNumber(this,85);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=孔子的门徒之一，被后人尊为“复圣”" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd10"   style='CURSOR:hand' onclick='javascript:handleTipTd2(6);' >10.&nbsp;由西方思想家假设的没有阶级的幸福社会，即Utopia<br>
+                                                                        <input type="text" name="colInput10" size="15"  onkeyup="javascript:changeColTdNumber(this,6);" onFocus="javascript:handleTipTd2(6);" onBlur="javascript:inputColTdNumber(this,6);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=由西方思想家假设的没有阶级的幸福社会，即Utopia" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd11"   style='CURSOR:hand' onclick='javascript:handleTipTd2(37);' >11.&nbsp;程颢的诗《春日偶成》中“傍花随柳过前川”的上一句<br>
+                                                                        <input type="text" name="colInput11" size="15"  onkeyup="javascript:changeColTdNumber(this,37);" onFocus="javascript:handleTipTd2(37);" onBlur="javascript:inputColTdNumber(this,37);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=程颢的诗《春日偶成》中“傍花随柳过前川”的上一句" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd12"   style='CURSOR:hand' onclick='javascript:handleTipTd2(8);' >12.&nbsp;古埃及人以特殊方法处理过的尸体，可长期保存<br>
+                                                                        <input type="text" name="colInput12" size="15"  onkeyup="javascript:changeColTdNumber(this,8);" onFocus="javascript:handleTipTd2(8);" onBlur="javascript:inputColTdNumber(this,8);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=古埃及人以特殊方法处理过的尸体，可长期保存" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd13"   style='CURSOR:hand' onclick='javascript:handleTipTd2(39);' >13.&nbsp;神话中阴间的一座桥，人在投胎前要从上面走过，也称“奈何桥”<br>
+                                                                        <input type="text" name="colInput13" size="15"  onkeyup="javascript:changeColTdNumber(this,39);" onFocus="javascript:handleTipTd2(39);" onBlur="javascript:inputColTdNumber(this,39);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=神话中阴间的一座桥，人在投胎前要从上面走过，也称“奈何桥”" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#FFFFFF" id="colTd14"   style='CURSOR:hand' onclick='javascript:handleTipTd2(79);' >14.&nbsp;人体和动物体的一种组织，能在神经控制下收缩，使器官运动<br>
+                                                                        <input type="text" name="colInput14" size="15"  onkeyup="javascript:changeColTdNumber(this,79);" onFocus="javascript:handleTipTd2(79);" onBlur="javascript:inputColTdNumber(this,79);" maxlength="20">&nbsp;&nbsp;<a href="https://www.baidu.com/s?wd=人体和动物体的一种组织，能在神经控制下收缩，使器官运动" target="_blank"><font color="#459DF5">百度搜</font></a>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+
+
+                                            <td align="center" colspan="3"><br>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td width="300" align="left" valign="top"><script type="text/javascript">
+                                                document.write('<a style="display:none!important" id="tanx-a-mm_41230932_3504716_11514368"></a>');
+                                                tanx_s = document.createElement("script");
+                                                tanx_s.type = "text/javascript";
+                                                tanx_s.charset = "gbk";
+                                                tanx_s.id = "tanx-s-mm_41230932_3504716_11514368";
+                                                tanx_s.async = true;
+                                                tanx_s.src = "http://p.tanx.com/ex?i=mm_41230932_3504716_11514368";
+                                                tanx_h = document.getElementsByTagName("head")[0];
+                                                if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+                                            </script></td>
+                                            <td align="center" valign="top"><table border="0" cellspacing="0" cellpadding="1" bgcolor="666666" width="90%">
+                                                <tr>
+                                                    <td ><table width="100%" border="0" cellspacing="10" cellpadding="0" bgcolor="#FFFFFF">
+                                                        <tr>
+                                                            <td bgcolor="#FFFFFF" valign="top" ><p><font color="#FF0000"><b>注意事项：</b></font><br>
+                                                                1. <b>横竖行小于12行</b>的填字游戏，答案全部正确，用户积分加<b>60分</b>，答案每错一个字，所得积分减少1分，答案错十个字以上无分<br>
+                                                                <br>
+                                                                2. <b>横竖行为12行</b>的填字游戏，答案全部正确，用户积分加<b>100分</b>，答案每错一个字，所得积分减少1分，答案错十个字以上无分<br>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                    </table></td>
+                                                </tr>
+                                            </table></td>
+                                            <td width="300" align="left" valign="top"><script type="text/javascript">
+                                                document.write('<a style="display:none!important" id="tanx-a-mm_41230932_3504716_11514365"></a>');
+                                                tanx_s = document.createElement("script");
+                                                tanx_s.type = "text/javascript";
+                                                tanx_s.charset = "gbk";
+                                                tanx_s.id = "tanx-s-mm_41230932_3504716_11514365";
+                                                tanx_s.async = true;
+                                                tanx_s.src = "http://p.tanx.com/ex?i=mm_41230932_3504716_11514365";
+                                                tanx_h = document.getElementsByTagName("head")[0];
+                                                if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+                                            </script></td>
+                                        </tr>
+                                    </table>
+                                    <br>&nbsp;
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<input  type="text" name="clearAll"  style="display:none">
+<script type="text/javascript">
+    document.write('<a style="display:none!important" id="tanx-a-mm_41230932_3504716_11480221"></a>');
+    tanx_s = document.createElement("script");
+    tanx_s.type = "text/javascript";
+    tanx_s.charset = "gbk";
+    tanx_s.id = "tanx-s-mm_41230932_3504716_11480221";
+    tanx_s.async = true;
+    tanx_s.src = "http://p.tanx.com/ex?i=mm_41230932_3504716_11480221";
+    tanx_h = document.getElementsByTagName("head")[0];
+    if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+<font color="#FFFFFF"><br>
+    Copyright &reg; 2013-2024 puzzle8.com All Rights Reserved.</font><br>
+<a href="http://www.beian.miit.gov.cn" target="_blank"><font color="#FFFFFF">沪ICP备05056905号</font></a>
+
+<div style="width:300px;margin:0 auto; padding:0px 0;">
+    <img src="/images/beian.png"><a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32108102010371" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">苏公网安备 32108102010371号</p></a>
+</div>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/2335970.js"></script>
+<noscript><a href="http://www.51.la/?2335970" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/2335970.asp" style="border:none" /></a></noscript>
+
+</body>
+</html>
+<SCRIPT language=javascript>
+    if(document.all.clearAll.value  ==  1)  {
+        location.reload();
+    }
+    document.all.clearAll.value  =  1
+</script>

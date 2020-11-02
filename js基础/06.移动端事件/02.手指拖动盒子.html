@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手指拖动盒子</title>
+</head>
+<style>
+    .box{
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background-color: green;
+    }
+</style>
+<body>
+<div class="box"></div>
+<script>
+    const box = document.querySelector('.box')
+
+    //盒子起始位置
+    let x = 0
+    let y = 0
+    //触摸位置
+    let startX = 0
+    let startY = 0
+    //触摸移动位置===盒子移动位置
+    let moveX = 0
+    let moveY = 0
+    box.addEventListener('touchstart',function (e) {
+        startX = e.targetTouches[0].pageX
+        startY = e.targetTouches[0].pageY
+
+        x = box.offsetLeft
+        y = box.offsetTop
+    })
+    box.addEventListener('touchmove',function (e) {
+        moveX = e.targetTouches[0].pageX - startX
+        moveY = e.targetTouches[0].pageY - startY
+        box.style.left = x + moveX +'px'
+        box.style.top = y + moveY +'px'
+        e.preventDefault()  //阻止屏幕固定的默认行为
+    })
+</script>
+</body>
+</html>

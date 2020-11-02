@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>触摸事件</title>
+</head>
+<style>
+    .box{
+        width: 300px;
+        height: 300px;
+        background-color: green;
+    }
+</style>
+<body>
+<div class="box"></div>
+<script>
+    const box = document.querySelector('.box')
+
+    //手指触摸事件
+    box.addEventListener('touchstart',function () {
+        console.log('')
+    })
+    //手指移动事件
+    box.addEventListener('touchmove',function () {
+        console.log('===================')
+    })
+    //手指离开事件
+    box.addEventListener('touchend',function () {
+        console.log('-------------')
+    })
+</script>
+</body>
+</html>

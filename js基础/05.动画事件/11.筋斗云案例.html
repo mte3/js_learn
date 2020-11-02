@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+</head>
+<script src="06-%20-.js"></script>
+<style>
+    *{
+        background-color: black;
+    }
+    li{
+        z-index: 9;
+        list-style: none;
+        padding: 8px 16px;
+        background-color: white;
+    }
+    ul{
+        display: flex;
+        background-color: white;
+    }
+    .a{
+        position: absolute;
+        width: 100px;
+        height: 37px;
+        background-color: green;
+    }
+</style>
+<body>
+<div class="nav">
+    <span class="a"></span>
+    <ul class="u">
+        <li>首页新闻1</li>
+        <li>首页新闻2</li>
+        <li>首页新闻3</li>
+        <li>首页新闻4</li>
+        <li>首页新闻5</li>
+        <li>首页新闻6</li>
+        <li>首页新闻7</li>
+        <li>首页新闻8</li>
+    </ul>
+</div>
+<script>
+    const lis = document.querySelectorAll('li')
+    for(let i = 0;i<lis.length;i++){
+        lis[i].addEventListener('click',function () {
+
+        })
+    }
+</script>
+</body>
+</html>

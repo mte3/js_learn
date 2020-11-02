@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/08.轮播图.html" afterDir="false" />
+    <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="04.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js基础/05.动画事件/06- -.js" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/05.动画事件/06- -.js" afterDir="false" />
     </list>
@@ -83,6 +84,8 @@
       <workItem from="1603505231264" duration="7879000" />
       <workItem from="1603547840214" duration="17630000" />
       <workItem from="1603685442010" duration="29465000" />
+      <workItem from="1603505231264" duration="7679000" />
+      <workItem from="1604019365516" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -182,13 +185,17 @@
   </component>
   <component name="WindowStateProjectService">
     <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603718461843">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1603672699082">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603718461843" />
     <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603857176438">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603672699082" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1603674195897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603857176438" />
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603674195897" />
     <state x="368" y="88" key="MergeDialog" timestamp="1603424993958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -202,6 +209,8 @@
     </state>
     <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603719452700" />
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603424902163">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603364709286" />
+    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604019844888">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603424902163" />
@@ -209,6 +218,7 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="43" y="0" width="763" height="845" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1603775918957" />
+    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604019844888" />
     <state x="1108" y="248" key="run.anything.popup" timestamp="1603164456479">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
