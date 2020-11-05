@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        width: 100%;
+        height: 200px;
+        background-color: blue;
+    }
+
+    .banner {
+        width: 100%;
+        height: 300px;
+        background-color: rebeccapurple;
+    }
+
+    .context {
+        width: 100%;
+        height: 2000px;
+        background-color: darkred;
+    }
+
+    .btn {
+        display: none;
+        position: fixed;
+        bottom: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        border-radius: 18px;
+        text-align: center;
+        background-color: yellow;
+    }
+</style>
+<body>
+<div class="header"></div>
+<div class="banner"></div>
+<div class="context"></div>
+<div class="btn">↑</div>
+<script>
+    const btn = document.querySelector('.btn')
+    // const top = document.querySelector('.header')
+    let domTop = 0
+    document.addEventListener('scroll', function () {
+        if (window.scrollY > 500) {
+            btn.style.display = 'block'
+        } else {
+            btn.style.display = 'none'
+        }
+    })
+    btn.addEventListener('click', function () {
+        setInterval(() => {
+            if (window.scrollY>0){
+                domTop = window.scrollY - 5
+            }
+        },10)
+            window.scroll(0, domTop)
+    })
+
+</script>
+</body>
+</html>

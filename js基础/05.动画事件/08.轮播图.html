@@ -87,6 +87,7 @@
     const imgWidth = img.offsetWidth
 
 
+    //自动轮播
     let T = setInterval(() => {
         if (index<imgs.length-1){
             index++
@@ -100,13 +101,14 @@
         itemList[index].className = 'item active'
         animate(M,-(imgWidth+5)*index)
     },3000)
-    // 鼠标进入，显示左右按钮
+
+    // 鼠标进入，显示左右按钮,暂停轮播（清除计时器）
     W.addEventListener('mouseenter', function () {
         left.style.display = 'block'
         right.style.display = 'block'
         clearInterval(T)
     })
-    // 鼠标离开隐藏左右按钮
+    // 鼠标离开隐藏左右按钮，开始轮播
     W.addEventListener('mouseleave', function () {
         left.style.display = 'none'
         right.style.display = 'none'
