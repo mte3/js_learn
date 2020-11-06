@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>中华教育会</title>
 </head>
-<script src="vue.js"></script>
+<script src="js/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="network.js"></script>
+<script src="js/network.js"></script>
 <style>
     #app {
         display: flex;
@@ -84,7 +84,7 @@
         el: '#app',
         data: {
             a: ['啊', '啊', '啊', '啊', '啊', '啊', '啊',],
-            key: '9f4e0e6d-33dc-4090-9929-92109440b18f',
+            key: "9f4e0e6d-33dc-4090-9929-92109440b18f",
             questionAnswers: [
                 {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
             ],
@@ -178,33 +178,34 @@
                 console.log(this.questionAnswers)
 
 
-                // axios.post('http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore', {
+                // axios({
+                //     method:'post',
+                //     url:'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
+                //     // url:'http://123.207.32.32:8000/api/h8/home/multidata',
                 //     data: {
                 //         key: this.key,
                 //         questionAnswers: this.questionAnswers
                 //     }
-                // })
-                //     .then(function (response) {
-                //         console.log(response);
-                //     })
-                //     .catch(function (error) {
-                //         console.log(error);
-                //     });
+                // }).then(function (response) {
+                //     console.log(response);
+                // }).catch(function (error) {
+                //     console.log(error);
+                // });
 
                 request({
-                    url: 'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
+                    // url: '/basiclaw/answer/api/advancedTest/calculateScore',
+                    // url:'/basiclaw/answer/api/advancedTest/calculateScore',
+                    url:'/basiclaw/answer/api/advancedTest/calculateScore',
                     method: 'post',
                     data: {
                         key: this.key,
                         questionAnswers: this.questionAnswers
                     }
+                }).then(res => {
+                    console.log(res)
+                }).catch(err => {
+                    console.log(err)
                 })
-                    .then(res => {
-                        console.log(res)
-                    })
-                    .catch(err => {
-                        console.log(err)
-                    })
 
             },
 
@@ -284,7 +285,7 @@
                         t.style.backgroundColor = 'white'
                         let iid = id + i
                         let inputId = 'input' + id + i
-                        t.innerHTML = '<input style="width: 80%;color:green;height:30px;font-size:16px;border: none" type="text" :name=' + iid + ' :id = ' + inputId + '  MAXLENGTH="1"/>'
+                        t.innerHTML = '<input style="width: 80%;padding: 0;color:green;height:30px;font-size:16px;border: none" type="text" :name=' + iid + ' :id = ' + inputId + '  MAXLENGTH="1"/>'
 
                     }
                 })
@@ -306,7 +307,7 @@
                         let inputId = 'input' + iid
                         let t = document.querySelector(iid)
                         t.style.backgroundColor = 'white'
-                        t.innerHTML = '<input id=' + inputId + ' style="width: 80%;color:green;height:30px;font-size:16px;border: none" type="text" :name=iid MAXLENGTH="1"/>'
+                        t.innerHTML = '<input id=' + inputId + ' style="width: 80%;padding:0;color:green;height:30px;font-size:16px;border: none" type="text" :name=iid MAXLENGTH="1"/>'
                     }
                 })
             }
