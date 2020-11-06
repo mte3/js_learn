@@ -8,25 +8,36 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="js/network.js"></script>
 <style>
+    * {
+        text-align: center;
+    }
+
     #app {
+        width: 1920px;
+        text-align: center;
+        padding: 38px 0;
+        background-color: #E4B983;
+    }
+
+    #appMid {
+        text-align: center;
         display: flex;
     }
 
     .tips {
+        position: relative;
         padding: 12px;
-        font-size: 14px;
-        flex: 1;
-        background-color: #2ac845;
     }
 
     .center {
-        flex: 3;
         text-align: center;
     }
 
     .mid {
-        background-color: black;
-        border: 1px solid black;
+        background-color: white;
+        border-radius: 12px;
+        padding: 38px 33px 46px 33px;
+        margin: 42px 25px 38px 25px;
     }
 
     .down {
@@ -35,49 +46,92 @@
 
     .item {
         position: relative;
-        width: calc(100% / 18);
+        /*width: calc(100% / 18);*/
+        width: 45px;
         text-align: center;
-        line-height: 48px;
-        height: 48px;
-        margin: 0.5px;
-        background-color: grey;
+        line-height: 45px;
+        height: 45px;
+        color: white;
+        margin: 4px;
+        border-radius: 2px;
+        font-size: 28px;
+        border: 1px solid #BFBFBF;
+        background-color: #BFBFBF;
     }
 
     .tipItem {
-        margin: 12px 0;
+        letter-spacing: 1px;
+        text-align: left;
+        font-size: 30px;
+        margin: 24px 0;
+        width: 327px;
         /*line-height: ;*/
     }
-
-    button {
-        margin: 12px;
-        font-size: 16px;
-        padding: 12px 24px;
-        background-color: red;
+    #done {
+        margin-left: 912px;
+        font-size: 30px;
+        line-height: 46px;
+        width: 136px;
+        border-radius: 5px;
+        background-color: #BC3B3C;
         color: white;
+    }
+
+    .tipTitle {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    .tipSpan {
+        text-align: left;
+        font-size: 28px;
+
+    }
+
+    .header {
+        width: 1920px;
+        line-height: 588px;
+        background-color: #BC4E4F;
+        font-size: 60px;
+        color: white;
+        letter-spacing: 2px;
+    }
+
+    .footer {
+        width: 1920px;
+        line-height: 98px;
+        background-color: #3F3F3F;
+        color: white;
+        font-size: 24px;
     }
 </style>
 <body>
+<div class="header">2020年中國文化常識有獎線上遊戲</div>
 <div id="app">
-    <div class="left tips">
-        <h4>橫排提示</h4>
-        <div class="tipItem leftTips" v-for="i in tipsL">{{i}}</div>
-    </div>
+    <div id="appMid">
+        <div class="left tips">
+            <div class="tipTitle">横排</div>
+            <div class="tipSpan">提示：</div>
+            <div class="tipItem leftTips" v-for="i in tipsL">{{i}}</div>
+        </div>
 
-    <div class="center">
-        <div class="mid">
-            <div v-for="(down,Y) in 21" :id="downId(Y)" class="down">
-                <div v-for="(across,X) in 18" :id="item(Y,X)" class="item"
-                     :style="{height:H+'px', lineHeight:H+'px'}"></div>
+        <div class="center">
+            <div class="mid">
+                <div v-for="(down,Y) in 21" :id="downId(Y)" class="down">
+                    <div v-for="(across,X) in 20" :id="item(Y,X)" class="item"
+                    ></div>
+                </div>
             </div>
         </div>
-        <button @click="handelBtn">提交</button>
+        <div class="right tips">
+            <div class="tipTitle">竖排</div>
+            <div class="tipSpan">提示：</div>
+            <div class="tipItem rightTips" v-for="i in tipsR">{{i}}</div>
+        </div>
     </div>
-
-    <div class="right tips">
-        <h4>竖排提示</h4>
-        <div class="tipItem rightTips" v-for="i in tipsR">{{i}}</div>
-    </div>
+    <div @click="handelBtn" id="done">完成</div>
 </div>
+<div class="footer">2020-澳門特區工作委員會</div>
 </body>
 <script>
     const app = new Vue({
@@ -145,7 +199,7 @@
                 //点击按钮，获取输入的答案
                 //竖排输入的答案
                 this.answer.downAnswer1 = this.getDownAnswer(6, 14, 10,)
-                this.answer.downAnswer2 = this.getDownAnswer(16, 21, 11,)
+                this.answer.downAnswer2 = this.getDownAnswer(15, 21, 11,)
                 this.answer.downAnswer3 = this.getDownAnswer(17, 21, 6,)
                 this.answer.downAnswer4 = this.getDownAnswer(5, 9, 5,)
                 this.answer.downAnswer5 = this.getDownAnswer(5, 10, 8,)
@@ -193,9 +247,7 @@
                 // });
 
                 request({
-                    // url: '/basiclaw/answer/api/advancedTest/calculateScore',
-                    // url:'/basiclaw/answer/api/advancedTest/calculateScore',
-                    url:'/basiclaw/answer/api/advancedTest/calculateScore',
+                    url: '/basiclaw/answer/api/advancedTest/calculateScore',
                     method: 'post',
                     data: {
                         key: this.key,
@@ -216,7 +268,7 @@
                 for (let i = startNum; i < endNum; i++) {
                     let iid = '#item' + i + X
                     let t = document.querySelector(iid)
-                    if (t.innerHTML === '一' || t.innerHTML === '门' || t.innerHTML === '二' || t.innerHTML === '庆' || t.innerHTML === '年') {
+                    if (t.innerHTML === '国' || t.innerHTML === '一' || t.innerHTML === '门' || t.innerHTML === '二' || t.innerHTML === '庆' || t.innerHTML === '年') {
                         a.push(...t.innerHTML)
                     } else {
                         a.push(t.children[0].value)
@@ -232,16 +284,6 @@
                     b.push(t.children[0].value)
                 }
                 return b
-            },
-            getHeight() {
-                //获取格子高度
-                const getH = document.querySelector('.item')
-                if (getH.offsetWidth < 32) {
-                    //格子最小高度32
-                    this.H = 32
-                } else {
-                    this.H = getH.offsetWidth
-                }
             },
             downId(Y) {
                 return "downId" + Y
@@ -265,8 +307,8 @@
                     //格子内固定提示
                     for (let i = startNum; i < endNum; i++) {
                         let t = document.querySelector(id + i)
-                        t.style.backgroundColor = 'white'
-                        t.style.color = 'red'
+                        t.style.backgroundColor = '#BC3B3C'
+                        t.style.color = 'white'
                         t.innerHTML = list[i - startNum]
 
                     }
@@ -282,10 +324,10 @@
 
                     for (let i = startNum; i < endNum; i++) {
                         let t = document.querySelector(id + i)
-                        t.style.backgroundColor = 'white'
+                        t.style.backgroundColor = '#D19E65'
                         let iid = id + i
                         let inputId = 'input' + id + i
-                        t.innerHTML = '<input style="width: 80%;padding: 0;color:green;height:30px;font-size:16px;border: none" type="text" :name=' + iid + ' :id = ' + inputId + '  MAXLENGTH="1"/>'
+                        t.innerHTML = '<input style="background-color: #D19E65;width: 80%;padding: 0;color:white;height:42px;font-size:28px;border: none" type="text" :name=' + iid + ' :id = ' + inputId + '  MAXLENGTH="1"/>'
 
                     }
                 })
@@ -306,8 +348,8 @@
                         let iid = '#item' + i + X
                         let inputId = 'input' + iid
                         let t = document.querySelector(iid)
-                        t.style.backgroundColor = 'white'
-                        t.innerHTML = '<input id=' + inputId + ' style="width: 80%;padding:0;color:green;height:30px;font-size:16px;border: none" type="text" :name=iid MAXLENGTH="1"/>'
+                        t.style.backgroundColor = '#D19E65'
+                        t.innerHTML = '<input id=' + inputId + ' style="background-color: #D19E65;width: 80%;padding:0;color:white;height:42px;font-size:28px;border: none" type="text" :name=iid MAXLENGTH="1"/>'
                     }
                 })
             }
@@ -347,13 +389,6 @@
 
         },
         mounted() {
-            //计数格子高度，
-            this.getHeight()
-
-            //监听窗口变化
-            window.addEventListener('resize', this.getHeight)
-
-
         }
     })
 </script>
