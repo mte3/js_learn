@@ -10,6 +10,7 @@
 <style>
     * {
         text-align: center;
+        margin: auto;
     }
 
     #app {
@@ -25,19 +26,22 @@
     }
 
     .tips {
+        height: 1238px;
+        background-color:rgba(250,250,250,.2) ;
         position: relative;
-        padding: 12px;
+        padding: 30px 12px 30px 30px;
     }
 
     .center {
+        width: 1920px;
         text-align: center;
     }
 
     .mid {
         background-color: white;
         border-radius: 12px;
-        padding: 38px 33px 46px 33px;
-        margin: 42px 25px 38px 25px;
+        padding: 38px 32px 46px 32px;
+        margin: 0 25px;
     }
 
     .down {
@@ -46,7 +50,6 @@
 
     .item {
         position: relative;
-        /*width: calc(100% / 18);*/
         width: 45px;
         text-align: center;
         line-height: 45px;
@@ -63,13 +66,13 @@
         letter-spacing: 1px;
         text-align: left;
         font-size: 30px;
-        margin: 24px 0;
-        width: 327px;
-        /*line-height: ;*/
+        margin: 16px 0;
+        width: 312px;
     }
-    #done {
-        margin-left: 912px;
+
+    #doneBtn {
         font-size: 30px;
+        margin: auto;
         line-height: 46px;
         width: 136px;
         border-radius: 5px;
@@ -129,7 +132,7 @@
             <div class="tipItem rightTips" v-for="i in tipsR">{{i}}</div>
         </div>
     </div>
-    <div @click="handelBtn" id="done">完成</div>
+    <div @click="handelBtn" id="doneBtn">完成</div>
 </div>
 <div class="footer">2020-澳門特區工作委員會</div>
 </body>
@@ -232,32 +235,32 @@
                 console.log(this.questionAnswers)
 
 
-                // axios({
-                //     method:'post',
-                //     url:'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
-                //     // url:'http://123.207.32.32:8000/api/h8/home/multidata',
-                //     data: {
-                //         key: this.key,
-                //         questionAnswers: this.questionAnswers
-                //     }
-                // }).then(function (response) {
-                //     console.log(response);
-                // }).catch(function (error) {
-                //     console.log(error);
-                // });
-
-                request({
-                    url: '/basiclaw/answer/api/advancedTest/calculateScore',
+                axios({
                     method: 'post',
+                    url: 'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
+                    // url:'http://123.207.32.32:8000/api/h8/home/multidata',
                     data: {
                         key: this.key,
                         questionAnswers: this.questionAnswers
                     }
-                }).then(res => {
-                    console.log(res)
-                }).catch(err => {
-                    console.log(err)
-                })
+                }).then(function (response) {
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+                // request({
+                //     url: '/basiclaw/answer/api/advancedTest/calculateScore',
+                //     method: 'post',
+                //     data: {
+                //         key: this.key,
+                //         questionAnswers: this.questionAnswers
+                //     }
+                // }).then(res => {
+                //     console.log(res)
+                // }).catch(err => {
+                //     console.log(err)
+                // })
 
             },
 
