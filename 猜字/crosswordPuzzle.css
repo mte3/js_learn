@@ -1,0 +1,99 @@
+* {
+    text-align: center;
+    margin: auto;
+}
+
+#app {
+    width: 1920px;
+    text-align: center;
+    padding: 38px 0;
+    background-color: #E4B983;
+}
+
+#appMid {
+    text-align: center;
+    display: flex;
+}
+
+.tips {
+    height: 1238px;
+    background-color: rgba(250, 250, 250, .2);
+    position: relative;
+    padding: 30px 12px 30px 30px;
+}
+
+.center {
+    width: 1920px;
+    text-align: center;
+}
+
+.mid {
+    background-color: white;
+    border-radius: 12px;
+    padding: 38px 32px 46px 32px;
+    margin: 0 25px;
+}
+
+.down {
+    display: flex;
+}
+
+.item {
+    position: relative;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    height: 45px;
+    color: white;
+    margin: 4px;
+    border-radius: 2px;
+    font-size: 28px;
+    border: 1px solid #BFBFBF;
+    background-color: #BFBFBF;
+}
+
+.tipItem {
+    letter-spacing: 1px;
+    text-align: left;
+    font-size: 30px;
+    margin: 16px 0;
+    width: 312px;
+}
+
+#doneBtn {
+    font-size: 30px;
+    margin: auto;
+    line-height: 46px;
+    width: 136px;
+    border-radius: 5px;
+    background-color: #BC3B3C;
+    color: white;
+}
+
+.tipTitle {
+    text-align: center;
+    font-size: 32px;
+}
+
+.tipSpan {
+    text-align: left;
+    font-size: 28px;
+
+}
+
+.header {
+    width: 1920px;
+    line-height: 588px;
+    background-color: #BC4E4F;
+    font-size: 60px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.footer {
+    width: 1920px;
+    line-height: 98px;
+    background-color: #3F3F3F;
+    color: white;
+    font-size: 24px;
+}
