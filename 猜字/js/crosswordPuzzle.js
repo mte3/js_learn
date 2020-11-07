@@ -95,33 +95,31 @@ const app = new Vue({
 
             console.log(this.questionAnswers)
 
+            // axios({
+            //     method: 'post',
+            //     url: 'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
+            //      data: {
+            //         key: this.key,
+            //         questionAnswers: this.questionAnswers
+            //     },
+            // }).then(function (response) {
+            //     console.log(response);
+            // }).catch(function (error) {
+            //     console.log(error);
+            // });
 
-            axios({
+            request({
+                url: '/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
                 method: 'post',
-                url: 'http://8.129.111.60/knowledge/servlet/basiclaw/answer/api/advancedTest/calculateScore',
-                // url:'http://123.207.32.32:8000/api/h8/home/multidata',
                 data: {
                     key: this.key,
                     questionAnswers: this.questionAnswers
                 }
-            }).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
-            });
-
-            // request({
-            //     url: '/basiclaw/answer/api/advancedTest/calculateScore',
-            //     method: 'post',
-            //     data: {
-            //         key: this.key,
-            //         questionAnswers: this.questionAnswers
-            //     }
-            // }).then(res => {
-            //     console.log(res)
-            // }).catch(err => {
-            //     console.log(err)
-            // })
+            }).then(res => {
+                console.log(res)
+            }).catch(err => {
+                console.log(err)
+            })
 
         },
 
