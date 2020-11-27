@@ -6,26 +6,31 @@
 </head>
 <body>
 <script>
-    async function sleep(yanchi = 2000) {
-        return new Promise(res => {
-            setTimeout(() => {
-                res();
-            }, yanchi)
-        })
+    // async function sleep(yanchi = 2000) {
+    //     return new Promise(res => {
+    //         setTimeout(() => {
+    //             res();
+    //         }, yanchi)
+    //     })
+    // }
+    //
+    // async function show() {
+    //     for (const user of ["Joker", "黄伟杰"]) {
+    //       await new Promise(res=>{
+    //           setTimeout(()=>{
+    //               res()
+    //           },2000)
+    //         });
+    //         console.log(user)
+    //     }
+    // }
+    //
+    // show()
+    function f(a) {
+        return a+10
     }
 
-    async function show() {
-        for (const user of ["Joker", "黄伟杰"]) {
-          await new Promise(res=>{
-              setTimeout(()=>{
-                  res()
-              },2000)
-            });
-            console.log(user)
-        }
-    }
-
-    show()
+    alert(f(10))
 </script>
 </body>
 </html>

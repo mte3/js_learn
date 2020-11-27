@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="09">
-      <change afterPath="$PROJECT_DIR$/aaa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/09.返回顶部.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/05.动画事件/10.列表图标案例.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/05.动画事件/08.轮播图.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/05.动画事件/08.轮播图.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/H/chineseEducation.html" beforeDir="false" afterPath="$PROJECT_DIR$/H/chineseEducation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/03.节点操作/06.删除节点.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/03.节点操作/06.删除节点.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/04.事件高级/11.输入显示大号字体.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/hwj.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/hwj.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/vue_project/super_mall" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -91,6 +90,7 @@
       <workItem from="1604292161150" duration="2315000" />
       <workItem from="1604322484366" duration="249000" />
       <workItem from="1604327771474" duration="52000" />
+      <workItem from="1606397144309" duration="2126000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
