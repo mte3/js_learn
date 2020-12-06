@@ -11,13 +11,15 @@
     const begin = document.querySelector('.begin')
     const stop = document.querySelector('.stop')
     let time1 = null
+    let a = 1
     begin.addEventListener('click',function () {
         if (time1){
             clearInterval(time1)
             time1 = null
         } else {
             time1 = setInterval(() => {
-                console.log('定时器开始了')
+                a++
+                console.log(a)
             },1000)
         }
     })

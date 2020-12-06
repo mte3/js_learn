@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+aaa
+</body>
+<script>
+    let a = [5,12, 4, 3,46,2,48,0,3, 2, 1]
+    for (let i = 0; i <= a.length - 1; i++) {
+        for (let o = 0; o <= a.length - i - 1; o++) {
+            if (a[o] > a[o + 1]) {
+                const b = a[o]
+                a[o] = a[o + 1]
+                a[o + 1] = b
+            }
+        }
+    }
+    console.log(a)
+</script>
+</html>

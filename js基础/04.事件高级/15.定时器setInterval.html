@@ -7,8 +7,10 @@
 <body>
 <button>暂停</button>
 <script>
-    const time1 = setInterval(() => {
-        console.log('====')
+    let a = 1
+    let time1 = setInterval(() => {
+        a++
+        console.log(a)
     }, 1000)
 
     const btn = document.querySelector("button")
@@ -16,7 +18,9 @@
         if (btn.innerText === '暂停') {
             clearInterval(time1)
             btn.innerText = '开始'
-        }else {
+        } else {
+
+            console.log(time1)
             btn.innerText = '暂停'
         }
     })
