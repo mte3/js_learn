@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆形进度条</title>
+</head>
+<style>
+    .a {
+        position: relative;
+        margin: 100px auto;
+        width: 599px;
+        height: 600px;
+    }
+
+    .w {
+        position: absolute;
+        width: 300px;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    .Left {
+        left: 0;
+        -webkit-border-bottom-left-radius: 300px;
+        -webkit-border-top-left-radius: 300px;
+    }
+
+    .Right {
+        right: 0;
+        -webkit-border-bottom-right-radius: 300px;
+        -webkit-border-top-right-radius: 300px;
+    }
+
+    .n {
+        border: 50px solid brown;
+        width: 200px;
+        height: 500px;
+        transform: rotate(180deg);
+    }
+
+    .left {
+        -webkit-border-bottom-left-radius: 300px;
+        -webkit-border-top-left-radius: 300px;
+        border-right-color: transparent;
+        transform-origin: right center;
+    }
+
+    .right {
+        -webkit-border-bottom-right-radius: 300px;
+        -webkit-border-top-right-radius: 300px;
+        border-left-color: transparent;
+        transform-origin: left center;
+    }
+
+    .num {
+        position: absolute;
+        left: 180px;
+        top: 240px;
+        text-align: center;
+        font-size: 48px;
+        width: 240px;
+        height: 120px;
+    }
+</style>
+<body>
+<div class="a">
+    <div class="Left w">
+        <div class="left n"></div>
+    </div>
+    <div class="num"></div>
+    <div class="Right w">
+        <div class="right n"></div>
+    </div>
+</div>
+<script>
+    const left = document.querySelector('.left')
+    const right = document.querySelector('.right')
+    const num = document.querySelector('.num')
+    let le = 180
+    let ri = 180
+    let n = 0
+    let timeNum = 5
+    let time = setInterval(() => {
+        le += 180 / (timeNum * 100) * 2
+        if (le >= 360) {
+            le = 360;
+            ri += 180 / (timeNum * 100) * 2
+            ri >= 360 ? ri = 360 : ''
+            left.style.transform = ' rotate(' + ri + 'deg)'
+        }
+        right.style.transform = ' rotate(' + le + 'deg)'
+        n += 100 / (timeNum * 100)
+        num.innerHTML = n.toFixed(2) + '%'
+    }, 10)
+    setInterval(() => {
+        clearInterval(time)
+    }, timeNum * 1000)
+
+</script>
+</body>
+</html>

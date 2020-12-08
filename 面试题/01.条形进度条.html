@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条形进度条</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .num{
+        width: 100px;
+        text-align: center;
+        margin: 60px auto;
+    }
+    .xian {
+        margin: auto;
+        width: 600px;
+        height: 24px;
+        border-radius: 12px;
+        border: 1px solid red;
+    }
+
+    .xianN {
+        width: 0;
+        height: 24px;
+        border-radius: 12px;
+        background-color: red;
+    }
+</style>
+<body>
+<div class="num"></div>
+<div class="xian">
+    <div class="xianN"></div>
+</div>
+</body>
+<script>
+    const xian = document.querySelector('.xianN')//进度条进度
+    const nums = document.querySelector('.num')//百分比进度
+    const x = document.querySelector('.xian')//进度条外框
+    let xianW = x.offsetWidth //外框宽度
+    let w = 0 //进度宽度
+    let num = 0 //百分比计数
+    let time = 5 //几秒后完成进度条
+    let xianTime = setInterval(() => {
+        w += xianW/(time*100) //进度递增
+        num += 1 / (time*100) //百分比递增
+        xian.style.width = w + 'px'
+        // w === xianW ? w = 0 : ''
+        // num === 100 ? num = 0 : ''
+        let a = (num * 100).toFixed(2)
+        nums.innerHTML = a + '%'
+    }, 10)
+    setInterval(() => {
+        clearInterval(xianTime)
+    },time*1000)
+</script>
+</html>
