@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>构造函数</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    function Star(name,age,height) {
+        this.name = name,
+        this.age = age,
+        this.height = height
+    }
+    let a = new Star('刘德华',18,1.88)
+    // console.log(a)
+
+    let b = [5,8,4,1,54,99,223,21,45,]
+    // console.log(Math.max(...b))//最大值
+    // console.log(Math.min(...b))//最小值
+
+    // console.log(Math.random())//随机数
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+    }
+    console.log(getRandomInt(10))
+
+    // console.log(Math.floor(1.9))
+    // console.log(Math.floor(-1.9))//向小取整
+
+    // console.log(Math.ceil(1.1))
+    // console.log(Math.ceil(-1.1))//向大取整
+
+    // console.log(Math.E) //自然对数的底数（或称为基数），e，约等于 2.718
+
+    // console.log(Math.abs(-454))
+    // console.log(Math.abs(454)) //绝对值
+
+    // console.log(Math.round(4.2))
+    // console.log(Math.round(1.5))//四舍五入
+
+    // console.log(Math.trunc(1.454))//取整，去掉小数部分
+
+
+</script>
 </html>

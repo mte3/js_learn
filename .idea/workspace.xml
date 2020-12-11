@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/圆形进度条.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/翻转数组.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试题/01.条形进度条.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试题/02.圆形进度条.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/构造函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/构造函数.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../html+css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -99,7 +96,9 @@
       <workItem from="1606969769261" duration="653000" />
       <workItem from="1607224558888" duration="2188000" />
       <workItem from="1607313129053" duration="12506000" />
-      <workItem from="1607398881315" duration="2780000" />
+      <workItem from="1607398881315" duration="3536000" />
+      <workItem from="1607488000933" duration="3575000" />
+      <workItem from="1607600221940" duration="489000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606459484611</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="面试+1">
+      <created>1607403862012</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607403862012</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,13 +217,14 @@
     <MESSAGE value="07" />
     <MESSAGE value="09" />
     <MESSAGE value="09..." />
-    <option name="LAST_COMMIT_MESSAGE" value="09..." />
+    <MESSAGE value="面试+1" />
+    <option name="LAST_COMMIT_MESSAGE" value="面试+1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1607226771534">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1607403860814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607226771534" />
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607403860814" />
     <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1607317381503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,10 +237,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604292973803" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1607226782388">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1607403876284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607226782388" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607403876284" />
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604292934661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
