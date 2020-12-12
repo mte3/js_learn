@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/date.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/数组，字符串.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/构造函数.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/构造函数.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +100,8 @@
       <workItem from="1607398881315" duration="3536000" />
       <workItem from="1607488000933" duration="3575000" />
       <workItem from="1607600221940" duration="489000" />
+      <workItem from="1607686284911" duration="1099000" />
+      <workItem from="1607771189536" duration="3244000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -198,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607403862012</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="math">
+      <created>1607686323456</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607686323456</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,13 +228,14 @@
     <MESSAGE value="09" />
     <MESSAGE value="09..." />
     <MESSAGE value="面试+1" />
-    <option name="LAST_COMMIT_MESSAGE" value="面试+1" />
+    <MESSAGE value="math" />
+    <option name="LAST_COMMIT_MESSAGE" value="math" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1607403860814">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1607686322248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607403860814" />
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1607686322248" />
     <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1607317381503">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -237,10 +248,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604292973803" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1607403876284">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1607686329776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607403876284" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607686329776" />
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604292934661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
