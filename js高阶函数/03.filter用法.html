@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+<div class="box4"></div>
+<div class="box5"></div>
+</body>
+<script>
+    let box1 = document.querySelector('.box1')
+    let box2 = document.querySelector('.box2')
+    let box3 = document.querySelector('.box3')
+    let box4 = document.querySelector('.box4')
+    let box5 = document.querySelector('.box5')
+    let arr1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    box1.innerHTML = arr1
+    let arr2 = arr1.filter(function (a) {
+        return a % 2 === 0
+    })
+
+    arr1 = arr1.filter(function (a) {
+        return a % 2 === 0
+    })
+    console.log(arr1)
+    box2.innerHTML = arr2
+    let aaa = [1, 2, 3]
+    // filter高阶函数后的function参数，
+    // return后面跟的是条件判断，返回值是一个新数组，符合条件的就会加到新数组里面；
+    // element(第一个)是数组遍历出来的每个元素，
+    // index（第二个）是数组遍历出来的每个元素的索引值，
+    // self（第三个）是原数组
+    //element，index，self，可以用其他代替，但顺序一定是这样
+    let aa = aaa.filter(function (element, index, self) {
+        console.log(element)//依次打印1，2，3
+        console.log(index)//一次打印0，1，2，//元素索引值
+        console.log(self)//打印整个数组
+        return element > 1
+    })
+    console.log(aa)
+
+
+    let c = aaa.filter(function (a, b, c) {
+        console.log(a)//依次打印1，2，3
+        console.log(b)//一次打印0，1，2，//元素索引值
+        console.log(c)//打印整个数组
+        return a !== 2
+    })
+    console.log(c)
+</script>
+</html>

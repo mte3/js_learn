@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find</title>
+</head>
+<body>
+<script>
+
+    let arr2 = [5, 8, 5, 4, 5, 5, 7, 4]
+    //some((参数一，参数二，参数三) => {});返回值是数组中的某一元素
+    // return后面跟判断条件，一有符合条件该元素，结束循环，不会继续遍历下去；
+    // 如果直到遍历完都没有符合条件就返回undefined
+    // 参数一是遍历出来的每一个元素
+    //参数二是遍历出来的每一个元素的索引值
+    //参数三是元素组
+    let a = arr2.find((i,e,a) => {
+        // console.log(i)
+        // console.log(e)
+        // console.log(a)
+        return i > 5
+    })
+    console.log(a)
+</script>
+</body>
+</html>

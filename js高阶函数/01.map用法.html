@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+</head>
+<body>
+
+</body>
+<script>
+    let list = [1, 2, 3, 4, 5];
+    //map(function(参数一，参数二,参数三){})；
+    // 返回值是一个基于原数组经过操作后的新数组，数组长度不变
+    // return后面跟 对遍历出来的每一个元素的操作（如都+10）
+    // 参数一是遍历出来的某一个元素；
+    // 参数二是遍历出来的每一个元素的索引值
+    //参数三是元素组
+    let a = list.map(function (c, v,a) {
+        return c + 10
+    })
+    console.log(a)
+    let other = list.map((d, i) => {
+        // console.log(i)
+        return d * 2;
+    });
+    // console.log(other);
+</script>
+</html>

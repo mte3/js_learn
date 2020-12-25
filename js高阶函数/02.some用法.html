@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>some</title>
+</head>
+<body>
+
+</body>
+<script>
+    let arr1 = [5, 8, 5, 4, 5, 5, 7, 4]
+    //some((参数一，参数二，参数三) => {});返回值是true或者false
+    // return后面跟判断条件，一有符合条件就返回true，结束循环，不会继续遍历下去；
+    // 如果直到遍历完都没有符合条件就返回false
+
+    // 参数一是遍历出来的每一个元素
+    //参数二是遍历出来的每一个元素的索引值
+    //参数三是元素组
+    let isBig = arr1.some((e, i, a,) => {
+        return e > 10
+    })
+
+    // console.log(isBig)
+    // const isBiggerThan10 = (element, index, array) => {
+    //     return element === 17;
+    // }
+    //
+    // console.log(arr1.some(isBiggerThan10));
+
+    // [12, 5, 8, 1, 4].some(isBiggerThan10);
+</script>
+</html>
