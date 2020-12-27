@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止事件冒泡</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 800px;
+        height: 800px;
+        margin: 100px auto;
+        background-color: red;
+    }
+
+    .box1 {
+        width: 400px;
+        height: 400px;
+        background-color: blue;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="box1"></div>
+</div>
+</body>
+<script>
+    let box = document.querySelector('.box')
+    let box1 = document.querySelector('.box1')
+    box.onclick = () => {
+        alert('大大大盒子box别点击了')
+    }
+    box1.onclick = () => {
+        alert('小小盒子box1别点击了')
+        event.stopPropagation();//阻止冒泡事件的第一种方法
+        // return false
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort用法</title>
+</head>
+<body>
+<script>
+    let arr = [1, 8, 6, 3, 4, 5, 5,]
+    //sort() 用于排序,会改变原数组;(冒泡排序)
+    //sort() 不跟参数只能排序小于10的数字
+    console.log(arr.sort());//
+
+    let arr1 = [12, 45, 32, 45, 11, 2, 48, 6, 92, 3, 11]
+    //sort(fun);fun是一个函数,函数有两个参数,如函数参数a,b,
+    //return a-b是从小到大排序
+    //return b-a是从大到小排序
+    let s = arr1.sort((a, b) => {
+        return b - a
+    })
+    console.log(arr1)
+    console.log(s)
+
+</script>
+</body>
+</html>
