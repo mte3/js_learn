@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>findIndex</title>
+</head>
+<body>
+<script>
+    //findIndex()和find()类似,也是查找符合条件的第一个元素,不同之处在于findIndex()会返回这个元素的索引,如果没有找到,返回-1:
+    let a = [4, 1, 45, 23, 4, 566, 41]
+    console.log(a.findIndex((a) => {
+        return a > 100
+    }))
+    //打印结果5
+</script>
+</body>
+</html>

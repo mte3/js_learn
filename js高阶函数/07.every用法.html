@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>every用法</title>
+</head>
+<body>
+<script>
+    //every()方法可以判断数组的所有元素是否满足测试条件.
+    let arr = ['面对疾风咯', '快要斯咯','', '今晚吃什么', '今晚打老虎']
+    //every(fun());返回值是true或者false
+    // fun()的第一个参数是遍历出来的每一个元素;
+    //return 一个判断,如果所有元素都符合条件就返回true,有一个不符合条件都返回false
+    console.log(arr.every((a) => {
+        return a
+    }))
+</script>
+</body>
+</html>

@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js高阶函数/05.reduce用法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js高阶函数/06.sort用法.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试题/04.阻止事件冒泡.html" afterDir="false" />
+    <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="高阶函数.">
+      <change afterPath="$PROJECT_DIR$/js高阶函数/07.every用法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js高阶函数/08.findIndex用法.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js高阶函数/09.forEach用法.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/数组，字符串.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/02.事件基础(操作元素)/数组，字符串.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js高阶函数/02.some用法.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高阶函数/02.some用法.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js高阶函数/03.filter用法.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高阶函数/03.filter用法.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js高阶函数/04.find用法.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高阶函数/04.find用法.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/面试题/03.垂直水平居中.html" beforeDir="false" afterPath="$PROJECT_DIR$/面试题/03.垂直水平居中.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js高阶函数/06.sort用法.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高阶函数/06.sort用法.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,7 @@
       <workItem from="1607771189536" duration="3244000" />
       <workItem from="1608637950514" duration="2597000" />
       <workItem from="1608802339082" duration="6993000" />
-      <workItem from="1608904899519" duration="13558000" />
+      <workItem from="1608904899519" duration="17274000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -225,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608905809559</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="高阶函数.">
+      <created>1609079735974</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1609079735975</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,21 +252,22 @@
     <MESSAGE value="面试+1" />
     <MESSAGE value="math" />
     <MESSAGE value="高阶函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="高阶函数" />
+    <MESSAGE value="高阶函数." />
+    <option name="LAST_COMMIT_MESSAGE" value="高阶函数." />
   </component>
   <component name="WindowStateProjectService">
     <state x="781" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608876672691">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="781" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608876672691" />
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1608905808588">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1609079742357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608905808588" />
-    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1607317381503">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609079742357" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1609166816885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607317381503" />
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609166816885" />
     <state x="368" y="88" key="MergeDialog" timestamp="1604292973788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -270,10 +276,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604292973803" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1608905823600">
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1609079751950">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608905823600" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609079751950" />
     <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604292934661">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
