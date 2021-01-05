@@ -1,0 +1,67 @@
+//1.属性值变量
+@bgColor: #e6e6e6; //背景颜色
+@themeColor: #ff5777; //主题颜色
+@fontSize: 16px; //默认字体大小
+@fontColor: #000; //默认字体颜色
+
+//2.属性变量名
+//可减小代码书写量
+////变量名 必须使用大括号包裹
+@BgC: background-color;
+
+//3.选择器变量名
+//变量名 必须使用大括号包裹
+//让 选择器 变成 动态
+@wrap: .box1;
+@content: box2;
+
+//4.声明变量
+@BG: {
+  background-color: #e6e6e6
+};
+@WH: {
+  width: 1200px;
+  height: 600px;
+  border: solid 1px red;
+};
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@{wrap} { //变量名 必须使用大括号包裹
+  @WH();
+  @BG();
+  //@{BgC}: @bgColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box2 {
+    width: 600px;
+    height: 300px;
+      @{BgC}: @themeColor;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//.box1 {
+//  width: 1200px;
+//  height: 600px;
+//  background-color: #e6e6e6;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//
+//  .box2 {
+//    width: 600px;
+//    height: 300px;
+//    background-color: #ff5777;
+//  }
+//}
