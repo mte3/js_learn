@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/less/01.less/01.less.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/less/01.less/first.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/面试题/05.猜拳游戏.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/面试题/莫金华_前端实习/a.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/面试题/03.垂直水平居中.html" beforeDir="false" afterPath="$PROJECT_DIR$/面试题/03.垂直水平居中.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/vue_project/pro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -48,6 +47,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Laptop\Desktop\1+X\js\面试题" />
       <recent name="C:\Users\Laptop\Desktop\1+X\js\less\01.less" />
       <recent name="C:\Users\Laptop\Desktop\1+X\js\js高阶函数" />
       <recent name="C:\Users\Laptop\Desktop\1+X\js\img" />
@@ -110,6 +110,9 @@
       <workItem from="1608904899519" duration="17274000" />
       <workItem from="1609571246686" duration="224000" />
       <workItem from="1609650190185" duration="14252000" />
+      <workItem from="1610337885994" duration="1198000" />
+      <workItem from="1610522996391" duration="13816000" />
+      <workItem from="1611055821888" duration="5985000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -300,9 +303,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1108" y="248" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603164456479" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1609746435210">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610539156573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1609746435210" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610539156573" />
   </component>
 </project>

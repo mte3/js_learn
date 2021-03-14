@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>猜拳</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: blue;
+    }
+
+    #ai {
+        position: absolute;
+        top: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50vw;
+        height: 50vw;
+        text-align: center;
+        background-color: white;
+    }
+
+    .ai {
+        font-size: 15vw;
+        height: 50vw;
+        line-height: 50vw;
+        background-color: red;
+    }
+
+    .result {
+        z-index: -1;
+        position: fixed;
+        /*top: calc(50vw + 68px);*/
+        width: 100vw;
+        line-height: 100vh;
+        font-size: 30vw;
+        text-align: center;
+    }
+
+    .user {
+        position: absolute;
+        left: 0;
+        bottom: 68px;
+        width: 100vw;
+        justify-content: space-around;
+        display: flex;
+    }
+
+    .user > div {
+        width: 25vw;
+        line-height: 30vw;
+        text-align: center;
+        font-size: 10vw;
+        background-color: white;
+    }
+</style>
+<body>
+<div id="ai">
+    <div class="ai">Ai</div>
+</div>
+<div class="result"></div>
+<div class="user">
+    <div class="a">剪刀</div>
+    <div class="b">石头</div>
+    <div class="c">布</div>
+</div>
+</body>
+<script>
+    const ai = document.querySelector('.ai')
+    const result = document.querySelector('.result')
+    const a = document.querySelector('.a')
+    const b = document.querySelector('.b')
+    const c = document.querySelector('.c')
+    const aiList = ['剪刀', '石头', '布']
+    let aiRandom
+    Array.prototype.randomElement = function () {
+        return this[Math.floor(Math.random() * this.length)]
+    }
+    a.onclick = function () {
+        aiRandom = aiList.randomElement()
+        ai.innerHTML = aiRandom
+        if (aiRandom === '剪刀') {
+            result.innerHTML = '平'
+            result.style.color = 'black'
+        }else if (aiRandom==='石头'){
+            result.innerHTML = '输'
+            result.style.color = 'red'
+        }else {
+            result.innerHTML = '赢'
+            result.style.color = 'green'
+        }
+    }
+    b.onclick = function () {
+        aiRandom = aiList.randomElement()
+        ai.innerHTML = aiRandom
+        if (aiRandom === '剪刀') {
+            result.innerHTML = '赢'
+            result.style.color = 'green'
+        }else if (aiRandom==='石头'){
+            result.innerHTML = '平'
+            result.style.color = 'black'
+        }else {
+            result.innerHTML = '输'
+            result.style.color = 'red'
+        }
+    }
+    c.onclick = function () {
+        aiRandom = aiList.randomElement()
+        ai.innerHTML = aiRandom
+        if (aiRandom === '剪刀') {
+            result.innerHTML = '输'
+            result.style.color = 'red'
+        }else if (aiRandom==='石头'){
+            result.innerHTML = '赢'
+            result.style.color = 'green'
+        }else {
+            result.innerHTML = '平'
+            result.style.color = 'black'
+        }
+    }
+
+
+</script>
+</html>
