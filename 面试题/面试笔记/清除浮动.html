@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>
+</head>
+<!--高度塌陷：当所有子元素都浮动是，且父元素没有设置高度，这时父元素的高度就会产生塌陷。-->
+<!--清除浮动：-->
+<!--方法一：给父元素加固定高度，缺点是：高度固定；无法进行响应式布局-->
+<!--方法二：给父元素overflow: hidden;缺点：溢出部分会被隐藏-->
+<!--方法三：给父元素overflow: auto;缺点：内容高于父级是会出现滚动条-->
+<!--方法四：在浮动元素后面加一个空标签，clear:both;缺点：增加空标签，不利于优化页面-->
+<!--方法五：给父元素添加伪元素after，content:'';clear:both;display:block;优点：写法固定，兼容性高-->
+
+<style>
+    .contentBox{
+        /*height: 200px;//方法一*/
+        /*overflow: hidden;//方法二*/
+        /*overflow: auto;*/
+    }
+    .box{
+        /*clear: both;//方法四*/
+        /*height: 0;*/
+    }
+    .contentBox:after{
+        content: '';
+        /*height: 0;*/
+        display: block;
+        clear: both;
+    }
+    .item{
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background-color: red;
+    }
+    .aaa{
+        width: 1200px;
+        height: 300px;
+        background-color: blue;
+    }
+</style>
+<body>
+<div class="contentBox">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="box"></div>
+</div>
+<div class="aaa"></div>
+</body>
+</html>

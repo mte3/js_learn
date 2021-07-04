@@ -11,11 +11,13 @@
         width: 658px;
         height: 206px;
     }
+
     .M {
         position: absolute;
         left: 0;
         width: 600%;
     }
+
     .icon {
         z-index: 10;
         display: none;
@@ -27,6 +29,7 @@
         position: fixed;
         top: calc(50% - 24px);
     }
+
     .left {
         position: absolute;
         left: 0;
@@ -66,11 +69,11 @@
     <div class="items">
     </div>
     <div class="M">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603782792751&di=713bd54cc4ad1fdfb5eb5fc520bf6848&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F06fe626626cea371a25d4aaba69f01057213e95e2517d-nPCfxM_fw658">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603782792750&di=60667676b94e138be5e91249f1724094&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F6d312d5f74750698313dd3af532d012f7fcb303d42520-GRZAzI_fw658">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603782792751&di=713bd54cc4ad1fdfb5eb5fc520bf6848&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F06fe626626cea371a25d4aaba69f01057213e95e2517d-nPCfxM_fw658">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603782792751&di=713bd54cc4ad1fdfb5eb5fc520bf6848&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F06fe626626cea371a25d4aaba69f01057213e95e2517d-nPCfxM_fw658">
-        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603782792753&di=f0efb9ed56c66c63f2bcad27575ba5d7&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F69edf5e7cb3e93b5eaee672e88b79f9c3ea3ab0d1d330-tjRVpS_fw658">
+        <img src="https://t7.baidu.com/it/u=91673060,7145840&fm=193&f=GIF">
+        <img src="https://t7.baidu.com/it/u=91673060,7145840&fm=193&f=GIF">
+        <img src="https://t7.baidu.com/it/u=91673060,7145840&fm=193&f=GIF">
+        <img src="https://t7.baidu.com/it/u=91673060,7145840&fm=193&f=GIF">
+        <img src="https://t7.baidu.com/it/u=91673060,7145840&fm=193&f=GIF">
     </div>
 
 </div>
@@ -89,9 +92,9 @@
 
     //自动轮播
     let T = setInterval(() => {
-        if (index<imgs.length-1){
+        if (index < imgs.length - 1) {
             index++
-        }else {
+        } else {
             index = 0
         }
 
@@ -99,8 +102,8 @@
             itemList[i].className = 'item'
         }
         itemList[index].className = 'item active'
-        animate(M,-(imgWidth+5)*index)
-    },3000)
+        animate(M, -(imgWidth + 5) * index)
+    }, 3000)
 
     // 鼠标进入，显示左右按钮,暂停轮播（清除计时器）
     W.addEventListener('mouseenter', function () {
@@ -113,9 +116,9 @@
         left.style.display = 'none'
         right.style.display = 'none'
         T = setInterval(() => {
-            if (index<imgs.length-1){
+            if (index < imgs.length - 1) {
                 index++
-            }else {
+            } else {
                 index = 0
             }
 
@@ -123,8 +126,8 @@
                 itemList[i].className = 'item'
             }
             itemList[index].className = 'item active'
-            animate(M,-(imgWidth+5)*index)
-        },3000)
+            animate(M, -(imgWidth + 5) * index)
+        }, 3000)
     })
 
     // 有几张图片就有几个圆点
@@ -176,7 +179,6 @@
         }
         itemList[index].className = 'item active'
     })
-
 
 
 </script>

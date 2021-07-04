@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="632dc4ce-a599-42be-b9ca-5f83cbfbf12d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/面试题/05.猜拳游戏.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/面试题/莫金华_前端实习/a.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js基础/05.动画事件/08.轮播图.html" beforeDir="false" afterPath="$PROJECT_DIR$/js基础/05.动画事件/08.轮播图.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js高阶函数/01.map用法.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高阶函数/01.map用法.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +113,10 @@
       <workItem from="1610337885994" duration="1198000" />
       <workItem from="1610522996391" duration="13816000" />
       <workItem from="1611055821888" duration="5985000" />
+      <workItem from="1615732765191" duration="3908000" />
+      <workItem from="1616129958769" duration="2585000" />
+      <workItem from="1617104241972" duration="5821000" />
+      <workItem from="1623031594439" duration="100000" />
     </task>
     <task id="LOCAL-00001" summary="..">
       <created>1603122825693</created>
@@ -240,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609571448597</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="高阶函数....">
+      <created>1615732791761</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1615732791761</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,45 +275,30 @@
     <MESSAGE value="高阶函数" />
     <MESSAGE value="高阶函数." />
     <MESSAGE value="高阶函数..." />
-    <option name="LAST_COMMIT_MESSAGE" value="高阶函数..." />
+    <MESSAGE value="高阶函数...." />
+    <option name="LAST_COMMIT_MESSAGE" value="高阶函数...." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="739" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616235434862">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="162" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1616235434862" />
     <state x="781" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608876672691">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="781" y="368" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608876672691" />
-    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1609571447695">
+    <state x="1048" y="128" key="CommitChangelistDialog2" timestamp="1615732790342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609571447695" />
-    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1609660387779">
+    <state x="1048" y="128" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1615732790342" />
+    <state x="1008" y="273" key="FileChooserDialogImpl" timestamp="1617107280621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609660387779" />
-    <state x="368" y="88" key="MergeDialog" timestamp="1604292973788">
+    <state x="1008" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1617107280621" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1615732805693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="368" y="88" key="MergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604292973788" />
-    <state x="1158" y="232" key="MultipleFileMergeDialog" timestamp="1604292973803">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1158" y="232" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604292973803" />
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2" timestamp="1609571459031">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609571459031" />
-    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604292934661">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1241" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1604292934661" />
-    <state x="45" y="0" width="973" height="1009" key="dock-window-1" timestamp="1604125156956">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="45" y="0" width="973" height="1009" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1604125156956" />
-    <state x="1108" y="248" key="run.anything.popup" timestamp="1603164456479">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1108" y="248" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1603164456479" />
+    <state x="1040" y="271" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1615732805693" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610539156573">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
